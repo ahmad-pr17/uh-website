@@ -1,0 +1,115 @@
+"use client";
+
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Menu, X, Phone, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const NAV_LINKS = [
+    { name: "Home", href: "/" },
+    { name: "Projects", href: "/projects" },
+    { name: "Maps", href: "/maps" },
+    { name: "Blog", href: "/blog" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+];
+
+export default function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    return (
+        <header
+            className={cn(
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                isScrolled
+                    ? "bg-background/80 backdrop-blur-md border-b border-border py-4"
+                    : "bg-transparent py-6"
+            )}
+        >
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="flex items-center justify-between">
+                    <Link href="/" className="flex items-center gap-2">
+                        <div className="text-2xl font-bold tracking-tighter text-white uppercase flex items-baseline gap-2">
+                            <span className="text-primary">Universal</span>
+                            <span className="font-light">Holdings</span>
+                        </div>
+                    </Link>
+
+                    {/* Desktop Nav */}
+                    <nav className="hidden md:flex items-center gap-8">
+                        {NAV_LINKS.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    <div className="hidden md:flex items-center gap-4">
+                        <Link
+                            href="tel:+923001234567"
+                            className="flex items-center gap-2 text-sm font-medium text-white bg-primary/10 hover:bg-primary/20 border border-primary/20 px-4 py-2 rounded-full transition-all"
+                        >
+                            <Phone className="w-4 h-4 text-primary" />
+                            <span>Call Us</span>
+                        </Link>
+                    </div>
+
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className="md:hidden text-white"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Nav */}
+            <div
+                className={cn(
+                    "fixed inset-0 top-[72px] bg-background z-40 md:hidden transition-transform duration-300 ease-in-out",
+                    isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                )}
+            >
+                <div className="flex flex-col gap-6 p-8">
+                    {NAV_LINKS.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className="text-xl font-medium text-white hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                    <div className="pt-6 border-t border-border mt-auto">
+                        <div className="flex flex-col gap-4">
+                            <p className="text-sm text-muted-foreground uppercase tracking-widest font-semibold">Contact Us</p>
+                            <div className="flex items-center gap-3 text-white">
+                                <Phone className="w-5 h-5 text-primary" />
+                                <span>+92 300 123 4567</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-white">
+                                <Mail className="w-5 h-5 text-primary" />
+                                <span>info@universalholdings.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
+}
