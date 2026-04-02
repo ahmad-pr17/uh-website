@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Search, Filter, ArrowRight } from "lucide-react";
+import { ALL_PROJECTS } from "@/data/projects";
 
 export default function ProjectsPage() {
     return (
@@ -30,27 +31,27 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Project List Items (can be refactored into a component later) */}
-                    {[
-                        "Union Town Lahore",
-                        "DHA Phase 7",
-                        "DHA Phase 9 Prism",
-                        "DHA Phase 10",
-                        "DHA Multan",
-                        "DHA Gujranwala",
-                        "Lahore Smart City"
-                    ].map((name) => (
-                        <div key={name} className="group bg-secondary/20 rounded-2xl border border-border overflow-hidden hover:border-primary/30 transition-all">
-                            <div className="aspect-video bg-muted relative">
+                    {ALL_PROJECTS.map((project) => (
+                        <div key={project.id} className="group bg-secondary/20 rounded-2xl border border-border overflow-hidden hover:border-primary/30 transition-all">
+                            <div className="aspect-video bg-muted relative overflow-hidden">
+                                <div 
+                                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                                    style={{ backgroundImage: `url('${project.image}')` }}
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
                             </div>
                             <div className="p-6 space-y-4">
-                                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{name}</h3>
-                                <p className="text-sm text-muted-foreground">
-                                    Premium residential and commercial options available with modern amenities and high investment potential.
+                                <div className="flex justify-between items-start">
+                                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{project.name}</h3>
+                                    {project.hot && (
+                                        <span className="px-2 py-0.5 bg-primary text-black text-[10px] font-bold uppercase tracking-widest rounded-full">Hot</span>
+                                    )}
+                                </div>
+                                <p className="text-sm text-muted-foreground line-clamp-2">
+                                    {project.description}
                                 </p>
                                 <Link
-                                    href={`/projects/${name.toLowerCase().replace(/\s+/g, '-')}`}
+                                    href={project.isDha ? `/projects/dha-lahore/${project.slug}` : `/projects/${project.slug}`}
                                     className="flex items-center gap-2 text-primary font-semibold group-hover:gap-4 transition-all"
                                 >
                                     <span>Learn More</span>

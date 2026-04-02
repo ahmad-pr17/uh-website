@@ -1,51 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight, Search } from "lucide-react";
+import { OTHER_PROJECTS, DHA_PROJECTS, Project } from "@/data/projects";
 
-const OTHER_PROJECTS = [
-    {
-        name: "Union Town Lahore",
-        description: "New hot launch by Union Developers on Abdul Sattar Edhi Road. Prime connectivity and high investment potential.",
-        href: "/projects/union-town-lahore",
-        image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800",
-        hot: true,
-    },
-    {
-        name: "Lahore Smart City",
-        description: "The first smart city of Lahore, offering sustainable and tech-driven urban living.",
-        href: "/projects/lahore-smart-city",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
-        hot: true,
-    },
-];
-
-const DHA_PROJECTS = [
-    {
-        name: "DHA Phase 7",
-        description: "Premium residential and commercial plots in one of the most developed phases of DHA Lahore.",
-        href: "/projects/dha-phase-7",
-        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
-        hot: true,
-    },
-    {
-        name: "DHA Phase 9 Prism",
-        description: "The next big investment hub in Lahore with state-of-the-art infrastructure and modern living.",
-        href: "/projects/dha-phase-9-prism",
-        image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800",
-        hot: true,
-    },
-    {
-        name: "DHA Phase 10",
-        description: "Secure your future with files in the highly anticipated DHA Phase 10 Lahore.",
-        href: "/projects/dha-phase-10",
-        image: "https://images.unsplash.com/photo-1460317442991-0ec239f33649?auto=format&fit=crop&q=80&w=800",
-        hot: false,
-    },
-];
-
-function ProjectCard({ project }: { project: any }) {
+function ProjectCard({ project }: { project: Project }) {
     return (
         <Link
-            href={project.href}
+            href={project.isDha ? `/projects/dha-lahore/${project.slug}` : project.slug.startsWith('/') ? project.slug : `/projects/${project.slug}`}
             className="group relative h-[400px] overflow-hidden rounded-2xl border border-border bg-secondary/20 transition-all hover:-translate-y-2 hover:border-primary/50"
         >
             <div
