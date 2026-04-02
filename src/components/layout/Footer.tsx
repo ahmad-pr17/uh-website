@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -7,9 +8,14 @@ export default function Footer() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-6">
-                        <div className="text-2xl font-bold tracking-tighter text-white uppercase flex items-baseline gap-2">
-                            <span className="text-primary">Universal</span>
-                            <span className="font-light">Holdings</span>
+                        <div className="flex items-center gap-2 mb-6">
+                            <Image 
+                                src="/logo.png" 
+                                alt="Universal Holdings Logo" 
+                                width={160} 
+                                height={50} 
+                                className="h-10 w-auto object-contain brightness-0 invert"
+                            />
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
                             Your trusted partner in premium real estate consultancy. Specializing in DHA Lahore and luxury projects across Pakistan.

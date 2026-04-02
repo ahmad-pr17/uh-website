@@ -1,17 +1,14 @@
 "use client";
 
 import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Clock, Car, Hospital, Maximize2 } from "lucide-react";
-import { useState } from "react";
 import dynamic from "next/dynamic";
-import PlotMapModal from "@/components/modules/PlotMapModal";
 
-const DynamicMap = dynamic<{ activeProject?: string; zoom?: number }>(() => import("@/components/modules/ProjectMap"), {
+const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
     ssr: false,
-    loading: () => <div className="w-full h-[400px] bg-secondary/10 animate-pulse rounded-3xl" />
+    loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
 });
 
 export default function UnionTownPage() {
-    const [isMapModalOpen, setIsMapModalOpen] = useState(false);
 
     const PLOTS = [
         { size: "3 Marla", status: "Limited Inventory", price: "Highly Competitive", features: ["Map-based allocation", "Fast development"] },
@@ -75,45 +72,37 @@ export default function UnionTownPage() {
                         </section>
 
                         {/* Location Section */}
-                        <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4">Prime Location</h2>
-                            <p className="text-muted-foreground text-lg">
-                                Situated on <span className="text-white font-semibold">Main Abdul Sattar Edhi Road</span>, Union Town
-                                provides unmatched connectivity to Lahore's major hubs.
-                            </p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <section className="space-y-8">
+                            <div className="flex flex-col md:flex-row justify-between items-end gap-4 border-b border-white/5 pb-6">
+                                <div className="space-y-2">
+                                    <h2 className="text-3xl font-bold text-white tracking-tight">Interactive Plot Layout</h2>
+                                    <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full w-fit">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                                        <p className="text-[10px] text-primary font-black uppercase tracking-widest">
+                                            Live Source: ilaaqa.com
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-full h-[600px] rounded-3xl overflow-hidden border border-primary/20 shadow-2xl bg-black/40">
+                                <IlaaqaMap 
+                                    mapUrl="https://ilaaqa.com/maps/union-town-lahore" 
+                                    projectName="Union Town Lahore" 
+                                />
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 bg-secondary/10 rounded-2xl border border-border/50">
                                 {[
                                     { icon: Car, text: "2 mins from Motorway Interchange" },
                                     { icon: Building2, text: "5 mins from Johar Town" },
-                                    { icon: Hospital, text: "10 mins from Shaukat Khanum Hospital" },
-                                    { icon: MapPin, text: "Right next to Etihad Town Gate 2" },
+                                    { icon: Hospital, text: "10 mins from Shaukat Khanum" },
+                                    { icon: MapPin, text: "Adjacent to Etihad Town Gate 2" },
                                 ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3 text-white/90 font-medium">
-                                        <item.icon className="w-5 h-5 text-primary" />
+                                    <div key={i} className="flex items-center gap-3 text-white/90 font-medium text-sm">
+                                        <item.icon className="w-5 h-5 text-primary flex-shrink-0" />
                                         <span>{item.text}</span>
                                     </div>
                                 ))}
                             </div>
-                            <div className="relative h-[400px] w-full group">
-                                <DynamicMap activeProject="Union Town Lahore" zoom={15} />
-                                <div className="absolute top-4 right-4 z-10">
-                                    <button
-                                        onClick={() => setIsMapModalOpen(true)}
-                                        className="flex items-center gap-2 px-4 py-2 bg-[#020617]/90 backdrop-blur-md border border-primary/30 rounded-xl text-white text-xs font-bold hover:bg-primary hover:text-black transition-all shadow-xl"
-                                    >
-                                        <Maximize2 className="w-4 h-4" />
-                                        View Detailed Plot Map
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Detailed Map Modal */}
-                            <PlotMapModal
-                                isOpen={isMapModalOpen}
-                                onClose={() => setIsMapModalOpen(false)}
-                                mapUrl="https://emap.pk/union-town-lahore-map"
-                                projectName="Union Town Lahore"
-                            />
                         </section>
 
                         {/* Plot Options */}
