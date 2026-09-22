@@ -7,19 +7,44 @@ export interface MapData {
     bounds: [[number, number], [number, number]] | null;
 }
 
+const FETCH_TIMEOUT_MS = 8000;
+const MAX_ATTEMPTS = 3;
+
+async function fetchHtmlWithRetry(mapUrl: string): Promise<string | null> {
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+        try {
+            const response = await fetch(mapUrl, {
+                headers: {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                },
+                cache: "no-store",
+                signal: controller.signal,
+            });
+
+            if (response.ok) return await response.text();
+        } catch (error) {
+            console.error(`fetchTileUrl attempt ${attempt}/${MAX_ATTEMPTS} failed for ${mapUrl}:`, error);
+        } finally {
+            clearTimeout(timeout);
+        }
+
+        // Brief backoff before the next attempt — a cold serverless function or a
+        // momentarily slow upstream is usually fine on the second or third try.
+        if (attempt < MAX_ATTEMPTS) {
+            await new Promise((resolve) => setTimeout(resolve, 400 * attempt));
+        }
+    }
+    return null;
+}
+
 export async function fetchTileUrl(mapUrl: string): Promise<MapData | null> {
     try {
-        const response = await fetch(mapUrl, {
-            headers: {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            },
-            cache: "no-store"
-        });
+        const html = await fetchHtmlWithRetry(mapUrl);
+        if (!html) return null;
 
-        if (!response.ok) return null;
-
-        const html = await response.text();
-        
         let tileUrl: string | null = null;
         let center: [number, number] | null = null;
         let zoom: number | null = null;

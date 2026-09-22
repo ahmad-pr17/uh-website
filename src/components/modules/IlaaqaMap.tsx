@@ -1,6 +1,6 @@
 "use client";
 
-import { Maximize2, ExternalLink, Map as MapIcon, ShieldCheck, Loader2 } from "lucide-react";
+import { Maximize2, ExternalLink, Map as MapIcon, ShieldCheck, Loader2, RefreshCw } from "lucide-react";
 import { useState, useEffect } from "react";
 import { fetchTileUrl, MapData } from "@/actions/mapActions";
 import dynamic from "next/dynamic";
@@ -16,14 +16,15 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
     const [isHovered, setIsHovered] = useState(false);
     const [mapData, setMapData] = useState<MapData | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [retryCount, setRetryCount] = useState(0);
 
     useEffect(() => {
         if (!mapUrl) return;
-        
+
         let isMounted = true;
         setIsLoading(true);
         setMapData(null); // Reset
-        
+
         fetchTileUrl(mapUrl).then((fetchedData) => {
             if (isMounted) {
                 setMapData(fetchedData);
@@ -32,7 +33,7 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
         });
 
         return () => { isMounted = false; };
-    }, [mapUrl]);
+    }, [mapUrl, retryCount]);
 
     if (!mapUrl) {
         return (
@@ -129,17 +130,26 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
                         </p>
                     </div>
 
-                    <a 
-                        href={mapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/btn relative w-full flex items-center justify-center gap-3 py-4 bg-primary text-black font-extrabold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_rgb(var(--primary))] active:scale-95"
-                    >
-                        <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
-                        <span className="relative z-10 flex items-center gap-2">
-                            Launch Interactive View <ExternalLink className="w-4 h-4" />
-                        </span>
-                    </a>
+                    <div className="space-y-3">
+                        <button
+                            type="button"
+                            onClick={() => setRetryCount((c) => c + 1)}
+                            className="w-full flex items-center justify-center gap-2 py-3 bg-white/5 border border-white/10 text-white font-bold text-sm rounded-xl hover:bg-white/10 hover:border-primary/30 transition-all"
+                        >
+                            <RefreshCw className="w-4 h-4" /> Retry Interactive Map
+                        </button>
+                        <a
+                            href={mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/btn relative w-full flex items-center justify-center gap-3 py-4 bg-primary text-black font-extrabold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_2rem_-0.5rem_rgb(var(--primary))] active:scale-95"
+                        >
+                            <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
+                            <span className="relative z-10 flex items-center gap-2">
+                                Launch Interactive View <ExternalLink className="w-4 h-4" />
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
             
