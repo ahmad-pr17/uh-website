@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -21,15 +21,20 @@ export default function Footer() {
                             Your trusted partner in premium real estate consultancy. Specializing in DHA Lahore and luxury projects across Pakistan.
                         </p>
                         <div className="flex items-center gap-4">
-                            <Link href="#" className="p-2 bg-background border border-border rounded-lg hover:border-primary transition-colors">
-                                <Facebook className="w-5 h-5" />
-                            </Link>
-                            <Link href="#" className="p-2 bg-background border border-border rounded-lg hover:border-primary transition-colors">
-                                <Instagram className="w-5 h-5" />
-                            </Link>
-                            <Link href="#" className="p-2 bg-background border border-border rounded-lg hover:border-primary transition-colors">
-                                <Twitter className="w-5 h-5" />
-                            </Link>
+                            {[
+                                { icon: Facebook, label: "Facebook" },
+                                { icon: Instagram, label: "Instagram" },
+                                { icon: Twitter, label: "Twitter" },
+                            ].map((social) => (
+                                <span
+                                    key={social.label}
+                                    aria-label={`${social.label} (coming soon)`}
+                                    title={`${social.label} — coming soon`}
+                                    className="p-2 bg-background border border-border rounded-lg text-muted-foreground/60 cursor-not-allowed"
+                                >
+                                    <social.icon className="w-5 h-5" />
+                                </span>
+                            ))}
                         </div>
                     </div>
 
@@ -47,11 +52,11 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wider">Services</h3>
                         <ul className="space-y-4">
-                            <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Property Consultancy</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Map Analysis</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Plot Sales</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Investment Guidance</Link></li>
-                            <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">Document Verification</Link></li>
+                            <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Property Consultancy</Link></li>
+                            <li><Link href="/maps" className="text-muted-foreground hover:text-primary transition-colors">Map Analysis</Link></li>
+                            <li><Link href="/projects" className="text-muted-foreground hover:text-primary transition-colors">Plot Sales</Link></li>
+                            <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Investment Guidance</Link></li>
+                            <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Document Verification</Link></li>
                         </ul>
                     </div>
 
@@ -77,8 +82,8 @@ export default function Footer() {
                 <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
                     <p>© {new Date().getFullYear()} Universal Holdings. All rights reserved.</p>
                     <div className="flex items-center gap-6">
-                        <Link href="#" className="hover:text-primary">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
+                        <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-primary">Terms & Conditions</Link>
                     </div>
                 </div>
             </div>

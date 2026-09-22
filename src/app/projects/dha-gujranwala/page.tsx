@@ -1,12 +1,6 @@
 "use client";
 
-import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Dumbbell, Users, Waves, ExternalLink } from "lucide-react";
-import dynamic from "next/dynamic";
-
-const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
-    ssr: false,
-    loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
-});
+import { MapPin, CheckCircle2, ShieldCheck, Dumbbell, Users, Waves, ExternalLink } from "lucide-react";
 
 export default function DHAGujranwalaPage() {
     const PLOTS = [

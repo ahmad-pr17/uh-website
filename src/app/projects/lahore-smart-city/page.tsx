@@ -1,12 +1,6 @@
 "use client";
 
-import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Zap, Wifi, Recycle, ExternalLink } from "lucide-react";
-import dynamic from "next/dynamic";
-
-const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
-    ssr: false,
-    loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
-});
+import { MapPin, CheckCircle2, ShieldCheck, Zap, Wifi, Recycle, ExternalLink } from "lucide-react";
 
 export default function LahoreSmartCityPage() {
     const PLOTS = [
@@ -46,7 +40,7 @@ export default function LahoreSmartCityPage() {
                             <p className="text-muted-foreground text-lg leading-relaxed">
                                 Lahore Smart City (LSC) is designed as a next-generation urban project based on <span className="text-white font-bold underline decoration-primary/30 underline-offset-4">smart infrastructure principles</span>.
                                 From smart traffic management to sustainable waste systems, LSC offers an efficient and eco-friendly environment.
-                                The dedicated interchange at Kala Shah Kaku is a game-changer, reducing travel time to Lahore's center to under 20 minutes.
+                                The dedicated interchange at Kala Shah Kaku is a game-changer, reducing travel time to Lahore&apos;s center to under 20 minutes.
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                                 {[
@@ -86,7 +80,7 @@ export default function LahoreSmartCityPage() {
                                     <div className="space-y-2">
                                         <h3 className="text-2xl font-bold text-white uppercase tracking-tight">Smart City Map Access</h3>
                                         <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                                            Official plot partitions for Lahore Smart City are meticulously tracked. We provide direct access to ilaaqa.com's verified master plans for the most accurate plotting data.
+                                            Official plot partitions for Lahore Smart City are meticulously tracked. We provide direct access to ilaaqa.com&apos;s verified master plans for the most accurate plotting data.
                                         </p>
                                     </div>
                                     <a 

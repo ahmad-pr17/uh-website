@@ -1,21 +1,8 @@
 "use client";
 
-import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Trophy, GraduationCap, ShoppingBag, Maximize2, ExternalLink } from "lucide-react";
-import dynamic from "next/dynamic";
-
-const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
-    ssr: false,
-    loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
-});
+import { MapPin, ShieldCheck, Trophy, GraduationCap, ShoppingBag, ExternalLink } from "lucide-react";
 
 export default function DHAMultanPage() {
-    const PLOTS = [
-        { size: "5 & 8 Marla", status: "Active Construction", price: "Highly Liquid", features: ["V-Block hot pick", "Possession coming soon"] },
-        { size: "12 Marla", status: "Residential", price: "Premium Living", features: ["Ideal for villas", "Near main office"] },
-        { size: "1 Kanal", status: "Investment", price: "High ROI", features: ["I & K Block recommendations", "Massive appreciation potential"] },
-        { size: "Golf Community", status: "Luxury", price: "Exclusive Rates", features: ["Rumanza Golf Course", "Gated within DHA"] },
-    ];
-
     return (
         <div className="pt-32 pb-20 bg-[#020617]">
             <div className="container mx-auto px-4 md:px-6">
@@ -27,7 +14,7 @@ export default function DHAMultanPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent" />
                     <div className="absolute bottom-12 left-8 md:left-12 space-y-4">
                         <div className="px-4 py-1.5 bg-primary text-black text-[10px] font-black uppercase tracking-[0.2em] rounded-full inline-block">
-                            Southern Punjab's Pride
+                            Southern Punjab&apos;s Pride
                         </div>
                         <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tight">
                             DHA <span className="text-primary italic font-serif">Multan</span>

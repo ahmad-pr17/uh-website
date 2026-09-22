@@ -61,7 +61,13 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
     if (mapData && mapData.tileUrl) {
         return (
             <div className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 bg-[#020617] relative shadow-2xl group">
-                <LeafletMap tileUrl={mapData.tileUrl} center={mapData.center || undefined} zoom={mapData.zoom || undefined} />
+                <LeafletMap
+                    key={mapUrl}
+                    tileUrl={mapData.tileUrl}
+                    center={mapData.center || undefined}
+                    zoom={mapData.zoom || undefined}
+                    bounds={mapData.bounds || undefined}
+                />
 
                 
                 {/* Floating Source Label */}

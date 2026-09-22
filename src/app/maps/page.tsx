@@ -1,8 +1,9 @@
 "use client";
 
-import { Layers, MousePointer2, ExternalLink, Map as MapIcon } from "lucide-react";
+import { Layers } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
     ssr: false,
@@ -33,7 +34,7 @@ export default function MapsPage() {
             <div className="container mx-auto px-4 md:px-6 h-full flex flex-col">
                 <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
                     <div className="space-y-4">
-                        <h2 className="text-primary font-bold tracking-widest uppercase text-sm">Society Guides</h2>
+                        <Eyebrow>Society Guides</Eyebrow>
                         <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">Interactive Plot Maps</h1>
                     </div>
                 </div>
@@ -41,7 +42,7 @@ export default function MapsPage() {
                 <div className="flex-grow grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Sidebar for Selectors */}
                     <div className="lg:col-span-1 space-y-6">
-                        <div className="p-6 bg-secondary/30 rounded-2xl border border-border space-y-6 max-h-[80vh] overflow-y-auto scrollbar-thin scrollbar-thumb-primary/20">
+                        <div className="p-6 bg-secondary/30 rounded-2xl border border-border space-y-6 max-h-[80vh] overflow-y-auto">
                             <div>
                                 <h3 className="text-white font-bold mb-4 flex items-center gap-2">
                                     <Layers className="w-4 h-4 text-primary" />

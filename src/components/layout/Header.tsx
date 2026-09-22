@@ -27,6 +27,21 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (!isMobileMenuOpen) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setIsMobileMenuOpen(false);
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "";
+        };
+    }, [isMobileMenuOpen]);
+
     return (
         <header
             className={cn(
@@ -76,6 +91,9 @@ export default function Header() {
                     <button
                         className="md:hidden text-white"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls="mobile-nav"
+                        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
                     </button>
@@ -84,6 +102,8 @@ export default function Header() {
 
             {/* Mobile Nav */}
             <div
+                id="mobile-nav"
+                inert={!isMobileMenuOpen}
                 className={cn(
                     "fixed inset-0 top-[72px] bg-background z-40 md:hidden transition-transform duration-300 ease-in-out",
                     isMobileMenuOpen ? "translate-x-0" : "translate-x-full"

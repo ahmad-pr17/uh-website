@@ -4,6 +4,7 @@ export interface MapData {
     tileUrl: string | null;
     center: [number, number] | null;
     zoom: number | null;
+    bounds: [[number, number], [number, number]] | null;
 }
 
 export async function fetchTileUrl(mapUrl: string): Promise<MapData | null> {
@@ -22,6 +23,7 @@ export async function fetchTileUrl(mapUrl: string): Promise<MapData | null> {
         let tileUrl: string | null = null;
         let center: [number, number] | null = null;
         let zoom: number | null = null;
+        let bounds: [[number, number], [number, number]] | null = null;
 
         // Extract Custom Tile URL
         // Match all tile layers and filter out standard openstreetmap
@@ -44,36 +46,48 @@ export async function fetchTileUrl(mapUrl: string): Promise<MapData | null> {
             }
         }
 
-        // Extract Center and Zoom with a more robust substring matching technique
-        const setViewIndex = html.indexOf('setView');
-        if (setViewIndex !== -1) {
-            const setViewStr = html.substring(setViewIndex, setViewIndex + 100);
-            const cMatch = setViewStr.match(/\[\s*([\d.]+)\s*,\s*([\d.]+)\s*\]/);
-            const zMatch = setViewStr.match(/\]\s*,\s*(\d+)/);
-            
-            if (cMatch) {
-                center = [parseFloat(cMatch[1]), parseFloat(cMatch[2])];
-            }
-            if (zMatch) {
-                zoom = parseInt(zMatch[1]);
+        // Primary: ilaaqa.com renders every map with `var bounds = L.latLngBounds(L.latLng(lat1,lng1), L.latLng(lat2,lng2));
+        // map.fitBounds(bounds);`. Grab every bounds literal, and prefer the one actually passed to fitBounds
+        // (the last one declared before the fitBounds() call) since a page can define per-layer bounds too.
+        const boundsRegex = /(?:new\s+)?L\.latLngBounds\(\s*(?:new\s+)?L\.latLng\(([\d.-]+)\s*,\s*([\d.-]+)\)\s*,\s*(?:new\s+)?L\.latLng\(([\d.-]+)\s*,\s*([\d.-]+)\)\s*\)/gi;
+        const fitBoundsIndex = html.indexOf('.fitBounds(');
+        let lastMatchBeforeFit: RegExpExecArray | null = null;
+        let firstMatch: RegExpExecArray | null = null;
+        let m: RegExpExecArray | null;
+        while ((m = boundsRegex.exec(html)) !== null) {
+            if (!firstMatch) firstMatch = m;
+            if (fitBoundsIndex !== -1 && m.index < fitBoundsIndex) lastMatchBeforeFit = m;
+        }
+        const boundsMatch = lastMatchBeforeFit || firstMatch;
+
+        if (boundsMatch) {
+            const lat1 = parseFloat(boundsMatch[1]);
+            const lng1 = parseFloat(boundsMatch[2]);
+            const lat2 = parseFloat(boundsMatch[3]);
+            const lng2 = parseFloat(boundsMatch[4]);
+
+            bounds = [[lat1, lng1], [lat2, lng2]];
+            center = [(lat1 + lat2) / 2, (lng1 + lng2) / 2];
+            // No fixed zoom - the map fits itself to these bounds on the client, matching the source site exactly.
+        }
+
+        // Fallback: older map pages use L.map(...).setView([lat, lng], zoom) instead of fitBounds
+        if (!bounds) {
+            const setViewIndex = html.indexOf('setView');
+            if (setViewIndex !== -1) {
+                const setViewStr = html.substring(setViewIndex, setViewIndex + 100);
+                const cMatch = setViewStr.match(/\[\s*([\d.-]+)\s*,\s*([\d.-]+)\s*\]/);
+                const zMatch = setViewStr.match(/\]\s*,\s*(\d+)/);
+
+                if (cMatch) {
+                    center = [parseFloat(cMatch[1]), parseFloat(cMatch[2])];
+                }
+                if (zMatch) {
+                    zoom = parseInt(zMatch[1]);
+                }
             }
         }
 
-        // Alternative: some maps use fitBounds with L.LatLngBounds instead of setView
-        if (!center) {
-            const boundsMatch = html.match(/new L\.LatLngBounds\(\s*new L\.LatLng\(([\d.]+),\s*([\d.]+)\),\s*new L\.LatLng\(([\d.]+),\s*([\d.]+)\)/);
-            if (boundsMatch) {
-                const lat1 = parseFloat(boundsMatch[1]);
-                const lng1 = parseFloat(boundsMatch[2]);
-                const lat2 = parseFloat(boundsMatch[3]);
-                const lng2 = parseFloat(boundsMatch[4]);
-                
-                // Calculate the true center of the bounds
-                center = [(lat1 + lat2) / 2, (lng1 + lng2) / 2];
-                zoom = 14; // Default safe zoom since fitBounds computes zoom automatically based on screen space
-            }
-        }
-        
         // Final fallback: just use Lahore generalized if absolutely nothing worked
         if (!center) {
             const genCenterMatch = html.match(/\[\s*(31\.[\d]+)\s*,\s*(74\.[\d]+)\s*\]/);
@@ -83,7 +97,7 @@ export async function fetchTileUrl(mapUrl: string): Promise<MapData | null> {
             }
         }
 
-        return { tileUrl, center, zoom };
+        return { tileUrl, center, zoom, bounds };
     } catch (error) {
         console.error("Failed to fetch map tile URL from:", mapUrl, error);
         return null;

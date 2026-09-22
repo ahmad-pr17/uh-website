@@ -7,6 +7,17 @@ export interface Project {
     hot?: boolean;
     isDha?: boolean;
     mapUrl?: string; // ilaaqa map slug or full url
+    tag?: string; // short standout stat shown as an eyebrow on project cards
+}
+
+// DHA phases with their own hand-built page (richer content, live map) instead of the generic
+// /projects/dha-lahore/[slug] template. Keep in sync with the folders under src/app/projects/.
+const DEDICATED_DHA_PAGES = new Set(["phase-7", "phase-9-prism", "phase-10"]);
+
+export function projectHref(project: Project): string {
+    if (!project.isDha) return `/projects/${project.slug}`;
+    if (DEDICATED_DHA_PAGES.has(project.slug)) return `/projects/dha-${project.slug}`;
+    return `/projects/dha-lahore/${project.slug}`;
 }
 
 export const OTHER_PROJECTS: Project[] = [
@@ -17,7 +28,8 @@ export const OTHER_PROJECTS: Project[] = [
         description: "New hot launch by Union Developers on Abdul Sattar Edhi Road. Prime connectivity and high investment potential.",
         image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800",
         hot: true,
-        mapUrl: "https://ilaaqa.com/maps/union-town-lahore"
+        mapUrl: "https://ilaaqa.com/maps/union-town-lahore",
+        tag: "Prime Connectivity"
     },
     {
         id: "lahore-smart-city",
@@ -26,7 +38,8 @@ export const OTHER_PROJECTS: Project[] = [
         description: "The first smart city of Lahore, offering sustainable and tech-driven urban living.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
         hot: true,
-        mapUrl: "https://ilaaqa.com/maps/lahore-smart-city"
+        mapUrl: "https://ilaaqa.com/maps/lahore-smart-city",
+        tag: "Tech-Driven Living"
     },
     {
         id: "dha-multan",
@@ -35,7 +48,8 @@ export const OTHER_PROJECTS: Project[] = [
         description: "A prestigious project in the city of saints, offering modern living standards and high investment returns.",
         image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800",
         hot: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-multan"
+        mapUrl: "https://ilaaqa.com/maps/dha-multan",
+        tag: "High Investment Returns"
     },
     {
         id: "dha-gujranwala",
@@ -44,7 +58,8 @@ export const OTHER_PROJECTS: Project[] = [
         description: "Developing a world-class lifestyle in Gujranwala with state-of-the-art infrastructure.",
         image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
         hot: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-gujranwala"
+        mapUrl: "https://ilaaqa.com/maps/dha-gujranwala",
+        tag: "World-Class Infrastructure"
     }
 ];
 
@@ -56,7 +71,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "One of DHA’s first projects. Prime location connecting Defense Chowk, Ghazi Road, and more.",
         image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-1-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-1-lahore",
+        tag: "Near Defence Chowk"
     },
     {
         id: "dha-p2",
@@ -65,7 +81,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Six highly developed sectors next to Phase 1. Fully finished and populated area near LUMS.",
         image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-2-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-2-lahore",
+        tag: "Near LUMS"
     },
     {
         id: "dha-p3",
@@ -74,7 +91,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Located between Khayaban-e-Jinnah and Ferozpur Road. Includes famous sectors like Y and Z.",
         image: "https://images.unsplash.com/photo-1460317442991-0ec239f33649?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-3-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-3-lahore",
+        tag: "Sectors Y & Z"
     },
     {
         id: "dha-p4",
@@ -83,7 +101,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Near Ghazi Road and Lahore Ring Road. Features sectors AA to JJ with comprehensive planning.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-4-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-4-lahore",
+        tag: "Sectors AA–JJ"
     },
     {
         id: "dha-p5",
@@ -92,7 +111,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Famous for underground electricity and wide roads. Top choice for modern construction.",
         image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-5-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-5-lahore",
+        tag: "Underground Electricity"
     },
     {
         id: "dha-p6",
@@ -101,7 +121,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "The best-planned phase with golf club and major shopping malls like Dolmen Square.",
         image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-6-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-6-lahore",
+        tag: "Golf Club & Dolmen Square"
     },
     {
         id: "dha-p7",
@@ -111,7 +132,8 @@ export const DHA_PROJECTS: Project[] = [
         image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800",
         isDha: true,
         hot: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-7-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-7-lahore",
+        tag: "Near BRB Canal"
     },
     {
         id: "dha-p8",
@@ -120,7 +142,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Main entrance from Airport. Includes Park View, Air Avenue, and IVY Green.",
         image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-8-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-8-lahore",
+        tag: "Airport Entrance"
     },
     {
         id: "dha-p9-prism",
@@ -130,7 +153,8 @@ export const DHA_PROJECTS: Project[] = [
         image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800",
         isDha: true,
         hot: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-9-prism"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-9-prism-lahore",
+        tag: "44,000+ Kanals"
     },
     {
         id: "dha-p9-town",
@@ -139,7 +163,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Also known as Shuhda Town. Highly attractive location between Phase 6 and Phase 9 Prism.",
         image: "https://images.unsplash.com/photo-1460317442991-0ec239f33649?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-9-town-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-9-town-lahore",
+        tag: "Between Phase 6 & 9"
     },
     {
         id: "dha-p10",
@@ -148,7 +173,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Highly anticipated future project. Secure your future with DHA Phase 10 files.",
         image: "https://images.unsplash.com/photo-1460317442991-0ec239f33649?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-10-files"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-10-files",
+        tag: "300ft Main Boulevards"
     },
     {
         id: "dha-rahbar",
@@ -157,7 +183,8 @@ export const DHA_PROJECTS: Project[] = [
         description: "Located on Defence Road. Gained huge importance with Ring Road Interchange connectivity.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
         isDha: true,
-        mapUrl: "https://ilaaqa.com/maps/dha-phase-11-rahbar-lahore"
+        mapUrl: "https://ilaaqa.com/maps/dha-phase-11-rahbar-lahore",
+        tag: "Ring Road Interchange"
     }
 ];
 

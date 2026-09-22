@@ -1,12 +1,6 @@
 "use client";
 
-import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, FileText, Wallet, Clock, Maximize2, ExternalLink } from "lucide-react";
-import dynamic from "next/dynamic";
-
-const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
-    ssr: false,
-    loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
-});
+import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, FileText, Wallet, ExternalLink } from "lucide-react";
 
 export default function DHAPhase10Page() {
     const PLOTS = [
@@ -44,7 +38,7 @@ export default function DHAPhase10Page() {
                         <section className="space-y-6">
                             <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4 uppercase tracking-tighter">The Investment Goldmine</h2>
                             <p className="text-muted-foreground text-lg leading-relaxed">
-                                DHA Phase 10 represents the <span className="text-white font-bold underline decoration-primary/30 underline-offset-4">next frontier</span> of Lahore's real estate.
+                                DHA Phase 10 represents the <span className="text-white font-bold underline decoration-primary/30 underline-offset-4">next frontier</span> of Lahore&apos;s real estate.
                                 It is designed as a gated community with full-proof security, mirroring the success of Askari 11.
                                 For investors, it offers the unique advantage of getting in at the ground floor with file-based investments.
                             </p>
