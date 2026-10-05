@@ -2,17 +2,25 @@
 
 import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Clock, Car, Hospital, Maximize2 } from "lucide-react";
 import dynamic from "next/dynamic";
+import VirtualTour from "@/components/modules/VirtualTour";
+import { RESIDENTIAL_PLOTS } from "@/data/unionTown";
 
 const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
     ssr: false,
     loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
 });
 
+// 5 Marla residential plan: price from the shared Union Town data, booking/tenure as published on this page.
+const PLAN = { total: RESIDENTIAL_PLOTS.find((p) => p.marla === 5)!.price!, booking: 1_500_000, tenure: 24 };
+const formatPkr = (n: number) =>
+    n >= 10_000_000 ? `PKR ${(n / 10_000_000).toFixed(2)} Crore` : `PKR ${(n / 100_000).toFixed(2)} Lakh`;
+
 export default function UnionTownPage() {
+    const monthly = (PLAN.total - PLAN.booking) / PLAN.tenure;
 
     const PLOTS = [
         { size: "3 Marla", status: "Limited Inventory", price: "Highly Competitive", features: ["Map-based allocation", "Fast development"] },
-        { size: "5 Marla", status: "Hot Selling", price: "PKR 1.15 Crore", features: ["PKR 15 Lakh Booking", "2-Year Installments", "Official Plot Numbers"] },
+        { size: "5 Marla", status: "Hot Selling", price: "PKR 1.25 Crore", features: ["PKR 15 Lakh Booking", "2-Year Installments", "Official Plot Numbers"] },
         { size: "10 Marla", status: "Premium", price: "Contact for Rates", features: ["Ideal for Residence", "Canal-side options"] },
         { size: "1 Kanal", status: "Luxury", price: "Contact for Rates", features: ["Exclusive Sectors", "High ROI potential"] },
     ];
@@ -105,9 +113,18 @@ export default function UnionTownPage() {
                             </div>
                         </section>
 
+                        {/* Virtual Tour */}
+                        <section className="space-y-8">
+                            <div className="space-y-2 border-b border-white/5 pb-6">
+                                <h2 className="text-3xl font-bold text-white tracking-tight">Virtual Tour</h2>
+                                <p className="text-muted-foreground">Explore Union Town in 360° — drag to look around.</p>
+                            </div>
+                            <VirtualTour />
+                        </section>
+
                         {/* Plot Options */}
                         <section className="space-y-8">
-                            <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4">Available Inventory</h2>
+                            <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4">Available Plot Sizes</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {PLOTS.map((plot) => (
                                     <div key={plot.size} className="p-8 bg-secondary/10 rounded-3xl border border-border hover:border-primary/40 transition-all space-y-4">
@@ -126,6 +143,43 @@ export default function UnionTownPage() {
                                                 </li>
                                             ))}
                                         </ul>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Payment Plans */}
+                        <section className="space-y-8">
+                            <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4">Payment Plans</h2>
+                            <div className="p-8 bg-secondary/10 rounded-3xl border border-primary/20 space-y-6">
+                                <div className="flex flex-wrap items-center justify-between gap-3">
+                                    <h4 className="text-2xl font-bold text-white">5 Marla — Hot Selling</h4>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-primary/10 border border-primary/20 rounded text-primary">
+                                        {PLAN.tenure} Months Installments
+                                    </span>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    {[
+                                        { label: "Total Price", value: formatPkr(PLAN.total) },
+                                        { label: "Booking", value: formatPkr(PLAN.booking) },
+                                        { label: "Monthly Installment*", value: formatPkr(monthly) },
+                                    ].map((s) => (
+                                        <div key={s.label} className="p-4 bg-background/60 rounded-2xl border border-border/50">
+                                            <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-widest">{s.label}</p>
+                                            <p className="text-white font-bold text-lg mt-1">{s.value}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className="text-xs text-muted-foreground">
+                                    *Indicative: balance of {formatPkr(PLAN.total - PLAN.booking)} spread evenly over {PLAN.tenure} months.
+                                    Final schedule, possession and development charges are confirmed at booking.
+                                </p>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                {["3 Marla", "10 Marla", "1 Kanal"].map((size) => (
+                                    <div key={size} className="p-5 bg-secondary/10 rounded-2xl border border-border space-y-1">
+                                        <p className="text-white font-bold">{size}</p>
+                                        <p className="text-sm text-muted-foreground">Custom plan — contact our team for the current schedule.</p>
                                     </div>
                                 ))}
                             </div>

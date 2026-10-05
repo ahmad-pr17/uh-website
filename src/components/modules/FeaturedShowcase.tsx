@@ -24,20 +24,35 @@ export default function FeaturedShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent" />
 
                 <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-16 space-y-6 max-w-2xl">
-                    {project.tag && (
-                        <p className="text-primary text-xs font-bold uppercase tracking-[0.3em]">
-                            ( {project.tag} )
-                        </p>
-                    )}
+                    <div className="flex flex-wrap items-center gap-3">
+                        <span className="px-4 py-1.5 bg-primary text-black text-xs font-bold uppercase tracking-widest rounded-full">
+                            Current Project
+                        </span>
+                        {project.tag && (
+                            <p className="text-primary text-xs font-bold uppercase tracking-[0.3em]">
+                                ( {project.tag} )
+                            </p>
+                        )}
+                    </div>
                     <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
                         {project.name}
                     </h2>
                     <p className="text-white/80 text-lg leading-relaxed max-w-xl">
                         {project.description}
                     </p>
+                    <div className="flex flex-wrap gap-2">
+                        {["3 Marla", "5 Marla", "10 Marla", "1 Kanal"].map((size) => (
+                            <span key={size} className="px-3 py-1 text-xs font-semibold text-white bg-white/10 border border-white/20 rounded-full backdrop-blur-md">
+                                {size}
+                            </span>
+                        ))}
+                        <span className="px-3 py-1 text-xs font-semibold text-primary bg-primary/10 border border-primary/30 rounded-full">
+                            Easy Installment Plans
+                        </span>
+                    </div>
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
                         <Button href={projectHref(project)} className="group/btn">
-                            Learn More
+                            Plots, Plans &amp; Virtual Tour
                             <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                         </Button>
                         <Button href="/projects" variant="outline">
