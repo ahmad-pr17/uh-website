@@ -1,5 +1,6 @@
 import Hero from "@/components/modules/Hero";
 import FeaturedShowcase from "@/components/modules/FeaturedShowcase";
+import UnionTownOverview from "@/components/modules/UnionTownOverview";
 import FeaturedProjects from "@/components/modules/FeaturedProjects";
 import Testimonials from "@/components/modules/Testimonials";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="flex flex-col gap-32 pb-32">
       <Hero />
       <FeaturedShowcase />
+      <UnionTownOverview />
       <FeaturedProjects />
 
       <section className="container mx-auto px-4 md:px-6 py-20 bg-secondary/20 rounded-3xl border border-border">
