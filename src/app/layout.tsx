@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Universal Holdings | Real Estate Consultant",
+  title: "Prime Estates | Real Estate Consultant",
   description: "Premier real estate consultancy specializing in DHA Lahore and luxury projects. Your trusted partner for secure property investments.",
 };
 

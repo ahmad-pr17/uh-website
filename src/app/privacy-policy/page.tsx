@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
                     <section className="space-y-3">
                         <h2 className="text-xl font-bold text-white">Information We Collect</h2>
                         <p>
-                            When you contact Universal Holdings through our website, we collect the information you
+                            When you contact Prime Estates through our website, we collect the information you
                             provide directly — such as your name, email address, and the details of your inquiry —
                             so we can respond to you.
                         </p>
@@ -39,8 +39,8 @@ export default function PrivacyPolicyPage() {
                         <h2 className="text-xl font-bold text-white">Contact Us</h2>
                         <p>
                             If you have questions about this policy, reach out at{" "}
-                            <a href="mailto:info@universalholdings.com" className="text-primary underline underline-offset-2">
-                                info@universalholdings.com
+                            <a href="mailto:info@example.com" className="text-primary underline underline-offset-2">
+                                info@example.com
                             </a>
                             .
                         </p>

@@ -15,7 +15,7 @@ const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
 
 const OFFICE_MAP_URL = "https://ilaaqa.com/maps/dha-phase-6-lahore";
 const OFFICE_ADDRESS = "Office #1, Phase 6, DHA Lahore";
-const CONTACT_EMAIL = "info@universalholdings.com";
+const CONTACT_EMAIL = "info@example.com";
 
 interface FormState {
     name: string;

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import BrandLogo from "@/components/ui/BrandLogo";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -54,14 +54,7 @@ export default function Header() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <Image 
-                            src="/logo.png" 
-                            alt="Universal Holdings" 
-                            width={180} 
-                            height={60} 
-                            className="h-12 w-auto object-contain"
-                            priority
-                        />
+                        <BrandLogo />
                     </Link>
 
                     {/* Desktop Nav */}
@@ -129,7 +122,7 @@ export default function Header() {
                             </div>
                             <div className="flex items-center gap-3 text-white">
                                 <Mail className="w-5 h-5 text-primary" />
-                                <span>info@universalholdings.com</span>
+                                <span>info@example.com</span>
                             </div>
                         </div>
                     </div>

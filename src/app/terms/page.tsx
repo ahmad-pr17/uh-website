@@ -15,7 +15,7 @@ export default function TermsPage() {
                         <h2 className="text-xl font-bold text-white">Use of This Website</h2>
                         <p>
                             This website provides general information about real estate projects and consultancy
-                            services offered by Universal Holdings. It is intended to help you research and get in
+                            services offered by Prime Estates. It is intended to help you research and get in
                             touch with our team — it is not itself an offer of sale.
                         </p>
                     </section>
@@ -39,8 +39,8 @@ export default function TermsPage() {
                         <h2 className="text-xl font-bold text-white">Contact Us</h2>
                         <p>
                             Questions about these terms can be sent to{" "}
-                            <a href="mailto:info@universalholdings.com" className="text-primary underline underline-offset-2">
-                                info@universalholdings.com
+                            <a href="mailto:info@example.com" className="text-primary underline underline-offset-2">
+                                info@example.com
                             </a>
                             .
                         </p>

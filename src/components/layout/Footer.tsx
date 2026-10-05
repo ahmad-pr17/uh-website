@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import BrandLogo from "@/components/ui/BrandLogo";
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
@@ -9,13 +9,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div className="space-y-6">
                         <div className="flex items-center gap-2 mb-6">
-                            <Image 
-                                src="/logo.png" 
-                                alt="Universal Holdings Logo" 
-                                width={160} 
-                                height={50} 
-                                className="h-10 w-auto object-contain brightness-0 invert"
-                            />
+                            <BrandLogo />
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
                             Your trusted partner in premium real estate consultancy. Specializing in DHA Lahore and luxury projects across Pakistan.
@@ -73,14 +67,14 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                                <span className="text-muted-foreground">info@universalholdings.com</span>
+                                <span className="text-muted-foreground">info@example.com</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-                    <p>© {new Date().getFullYear()} Universal Holdings. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Prime Estates. All rights reserved.</p>
                     <div className="flex items-center gap-6">
                         <Link href="/privacy-policy" className="hover:text-primary">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-primary">Terms & Conditions</Link>

@@ -139,7 +139,7 @@ export default function DHAPhase10Page() {
                                 </button>
                             </form>
                             <div className="pt-6 border-t border-white/5 space-y-4">
-                                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest text-center opacity-40 italic font-serif leading-relaxed">No Compromise on Legitimacy. Universal Trust.</p>
+                                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest text-center opacity-40 italic font-serif leading-relaxed">No Compromise on Legitimacy. Absolute Trust.</p>
                                 <div className="flex justify-center gap-6">
                                     <ShieldCheck className="w-5 h-5 text-primary/40" />
                                     <TrendingUp className="w-5 h-5 text-primary/40" />

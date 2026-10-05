@@ -47,7 +47,7 @@ export default function Hero() {
                         </Eyebrow>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
                             No Compromise on Legitimacy. <br />
-                            <span className="text-primary italic">Universal Trust.</span>
+                            <span className="text-primary italic">Absolute Trust.</span>
                         </h1>
                         <div className="relative max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
                             {/* Decorative Pin/Vertical line from image */}

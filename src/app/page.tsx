@@ -24,7 +24,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              At Universal Holdings, we specialize in DHA Lahore, DHA Multan, and other prestige projects. Our mission is to provide transparent, secure, and highly profitable investment opportunities for our clients.
+              At Prime Estates, we specialize in DHA Lahore, DHA Multan, and other prestige projects. Our mission is to provide transparent, secure, and highly profitable investment opportunities for our clients.
             </p>
             <div className="space-y-4">
               {[
@@ -48,7 +48,7 @@ export default function Home() {
           <div className="relative aspect-video rounded-2xl overflow-hidden border border-border">
             <div
               role="img"
-              aria-label="Universal Holdings real estate consultants at work"
+              aria-label="Real estate consultants at work"
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800')" }}
             />

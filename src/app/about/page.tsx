@@ -15,7 +15,7 @@ export default function AboutPage() {
                             </h1>
                         </div>
                         <p className="text-muted-foreground text-lg leading-relaxed">
-                            Universal Holdings was founded with a singular vision: to bring professional excellence and uncompromising integrity to the real estate market. We specialize in premium projects that offer long-term value and security.
+                            Prime Estates was founded with a singular vision: to bring professional excellence and uncompromising integrity to the real estate market. We specialize in premium projects that offer long-term value and security.
                         </p>
                         <div className="grid grid-cols-2 gap-8 pt-4">
                             <div className="space-y-2">
@@ -31,7 +31,7 @@ export default function AboutPage() {
                     <div className="aspect-square rounded-3xl overflow-hidden border border-border relative">
                         <div
                             role="img"
-                            aria-label="Universal Holdings office and team"
+                            aria-label="Real estate office and team"
                             className="absolute inset-0 bg-cover bg-center"
                             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&q=80&w=800')" }}
                         />
@@ -69,16 +69,16 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center bg-secondary/20 rounded-3xl border border-border p-8 md:p-12">
                     <div
                         role="img"
-                        aria-label="Azam Khan, Founder of Universal Holdings"
+                        aria-label="Founder of Prime Estates"
                         className="aspect-square rounded-2xl overflow-hidden border border-border bg-secondary flex items-center justify-center"
                     >
                         <User className="w-1/3 h-1/3 text-muted-foreground/40" strokeWidth={1} />
                     </div>
                     <div className="lg:col-span-2 space-y-4">
                         <Eyebrow>Our Story</Eyebrow>
-                        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Meet Azam Khan, Founder</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Meet Our Founder</h2>
                         <p className="text-muted-foreground leading-relaxed">
-                            With over 15 years in Lahore&apos;s real estate market, Azam built Universal Holdings on a simple
+                            With over 15 years in Lahore&apos;s real estate market, our founder built Prime Estates on a simple
                             principle: never recommend a plot he wouldn&apos;t buy for his own family. That standard now guides
                             every consultant on the team, from first inquiry to final transfer.
                         </p>

@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPost[] = [
             "As with any pre-launch project, file prices and balloting timelines can shift. Our consultants track official DHA announcements closely and can walk you through current file availability, verified pricing, and what to expect at each stage of development.",
         ],
         date: "Feb 24, 2026",
-        author: "Universal Admin",
+        author: "Editorial Team",
         time: "5 min read",
         image: "https://images.unsplash.com/photo-1590608897129-79da98d15969?auto=format&fit=crop&q=80&w=800",
     },
