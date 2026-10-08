@@ -26,7 +26,7 @@ export const OTHER_PROJECTS: Project[] = [
         slug: "union-town-lahore",
         name: "Union Town Lahore",
         description: "New hot launch by Union Developers on Abdul Sattar Edhi Road. Prime connectivity and high investment potential.",
-        image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800",
+        image: "/union-town-hero.jpg",
         hot: true,
         mapUrl: "https://ilaaqa.com/maps/union-town-lahore",
         tag: "Prime Connectivity"
