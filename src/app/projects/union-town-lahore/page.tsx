@@ -113,6 +113,41 @@ export default function UnionTownPage() {
                             </div>
                         </section>
 
+                        {/* Master Plan */}
+                        <section className="space-y-8">
+                            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/5 pb-6">
+                                <div className="space-y-2">
+                                    <h2 className="text-3xl font-bold text-white tracking-tight">Master Plan</h2>
+                                    <p className="text-muted-foreground">Official Union Town site plan — Blocks A to E along Abdul Sattar Edhi Road.</p>
+                                </div>
+                                <a
+                                    href="/union-town-map.jpg"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-xs font-bold text-primary hover:bg-primary/20 transition-colors shrink-0"
+                                >
+                                    <Maximize2 className="w-4 h-4" />
+                                    Open Full Size
+                                </a>
+                            </div>
+                            <a
+                                href="/union-town-map.jpg"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block overflow-hidden rounded-3xl border border-primary/20 shadow-2xl bg-white"
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/union-town-map.jpg"
+                                    alt="Union Town master plan showing Blocks A to E"
+                                    width={1698}
+                                    height={2400}
+                                    loading="lazy"
+                                    className="w-full h-auto object-top"
+                                />
+                            </a>
+                        </section>
+
                         {/* Virtual Tour */}
                         <section className="space-y-8">
                             <div className="space-y-2 border-b border-white/5 pb-6">
