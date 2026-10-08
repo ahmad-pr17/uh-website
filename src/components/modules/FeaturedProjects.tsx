@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, Search } from "lucide-react";
-import { OTHER_PROJECTS, DHA_PROJECTS, Project, projectHref } from "@/data/projects";
+import { ArrowUpRight } from "lucide-react";
+import { ALL_PROJECTS, Project, projectHref } from "@/data/projects";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Carousel } from "@/components/ui/Carousel";
 
@@ -58,32 +58,7 @@ export default function FeaturedProjects() {
                 </div>
 
                 <Carousel>
-                    {OTHER_PROJECTS.map((project) => (
-                        <ProjectCard key={project.name} project={project} />
-                    ))}
-                </Carousel>
-            </div>
-
-            {/* DHA Specific Projects */}
-            <div className="pt-8 border-t border-white/5">
-                <div className="mb-8 space-y-4">
-                    <div className="flex items-center gap-4">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">DHA Lahore</h2>
-                        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full mt-2">
-                            <Search className="w-3.5 h-3.5 text-blue-400" />
-                            <span className="text-[10px] text-blue-400 font-bold uppercase tracking-widest">
-                                Live data seamlessly fetched via online websearch
-                            </span>
-                        </div>
-                    </div>
-                    <p className="md:hidden text-[10px] text-blue-400 font-bold uppercase tracking-widest flex items-center gap-2">
-                        <Search className="w-3.5 h-3.5" />
-                        Live data seamlessly fetched via online websearch
-                    </p>
-                </div>
-
-                <Carousel>
-                    {DHA_PROJECTS.map((project) => (
+                    {ALL_PROJECTS.map((project) => (
                         <ProjectCard key={project.name} project={project} />
                     ))}
                 </Carousel>

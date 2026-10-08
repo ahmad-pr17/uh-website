@@ -12,18 +12,7 @@ const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
 
 const SOCIETY_MAPS = [
     { name: "Union Town Lahore", url: "https://ilaaqa.com/maps/union-town-lahore" },
-    { name: "DHA Phase 1 Lahore", url: "https://ilaaqa.com/maps/dha-phase-1-lahore" },
-    { name: "DHA Phase 2 Lahore", url: "https://ilaaqa.com/maps/dha-phase-2-lahore" },
-    { name: "DHA Phase 3 Lahore", url: "https://ilaaqa.com/maps/dha-phase-3-lahore" },
-    { name: "DHA Phase 4 Lahore", url: "https://ilaaqa.com/maps/dha-phase-4-lahore" },
-    { name: "DHA Phase 5 Lahore", url: "https://ilaaqa.com/maps/dha-phase-5-lahore" },
-    { name: "DHA Phase 6 Lahore", url: "https://ilaaqa.com/maps/dha-phase-6-lahore" },
-    { name: "DHA Phase 7 Lahore", url: "https://ilaaqa.com/maps/dha-phase-7-lahore" },
-    { name: "DHA Phase 8 Lahore", url: "https://ilaaqa.com/maps/dha-phase-8-lahore" },
-    { name: "DHA Phase 9 Prism Lahore", url: "https://ilaaqa.com/maps/dha-phase-9-prism-lahore" },
-    { name: "DHA Phase 11 Rahbar Lahore", url: "https://ilaaqa.com/maps/dha-phase-11-rahbar-lahore" },
-    { name: "DHA City Karachi", url: "https://ilaaqa.com/maps/dha-city-karachi-karachi" },
-    { name: "DHA Karachi", url: "https://ilaaqa.com/maps/dha-defence-karachi" },
+    { name: "Union Greens", url: "https://ilaaqa.com/maps/union-greens-lahore" },
 ];
 
 export default function MapsPage() {

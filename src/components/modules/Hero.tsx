@@ -75,7 +75,7 @@ export default function Hero() {
                                 type="text"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
-                                placeholder="Search DHA Phase 7, Union Town..."
+                                placeholder="Search Union Town, Pine Residencia, Union Greens..."
                                 aria-label="Search projects"
                                 className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-full py-4 pl-12 pr-4 text-white placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
                             />

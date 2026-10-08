@@ -37,7 +37,7 @@ export default function ProjectsPage() {
                     <Eyebrow>Our Portfolio</Eyebrow>
                     <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">Prime Projects</h1>
                     <p className="text-muted-foreground text-lg max-w-2xl">
-                        Explore our curated selection of high-yield real estate projects across Pakistan&apos;s most developed regions.
+                        Explore our current projects by Union Developers: Union Town, Pine Residencia and Union Greens.
                     </p>
                 </div>
 
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
                         <Input
                             type="text"
                             aria-label="Search projects"
-                            placeholder="Search projects (e.g. DHA Phase 7)..."
+                            placeholder="Search projects (e.g. Union Greens)..."
                             icon={<Search className="w-5 h-5" />}
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}

@@ -43,7 +43,7 @@ export default function AboutPage() {
                     {[
                         { icon: Shield, title: "Trust", desc: "Built on decades of honest consultancy and verified deals.", chips: ["Verified Deals", "Secure Titles"] },
                         { icon: Target, title: "Precision", desc: "Data-driven insights to find the most profitable plots.", chips: ["Market Data", "Smart Picks"] },
-                        { icon: Trophy, title: "Excellence", desc: "Award-winning service in DHA Lahore and beyond.", chips: ["Top Rated", "Proven Results"] },
+                        { icon: Trophy, title: "Excellence", desc: "Award-winning service across Lahore’s leading communities.", chips: ["Top Rated", "Proven Results"] },
                         { icon: Users, title: "Relationship", desc: "We don't just sell plots; we build lifelong partnerships.", chips: ["Long-Term Care", "Client First"] },
                     ].map((item) => (
                         <div key={item.title} className="p-8 bg-secondary/20 rounded-2xl border border-border space-y-4 hover:border-primary/30 transition-all">

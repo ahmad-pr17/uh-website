@@ -1,4 +1,4 @@
-const PARTNERS = ["Union Town", "Etihad Town", "Bahria Town", "DHA", "Union Greens"];
+const PARTNERS = ["Union Town", "Etihad Town", "Bahria Town", "Union Greens"];
 
 // Duplicated so the track can loop seamlessly: translating the first copy fully
 // out of view (-50%) lines the second copy up exactly where the first one started.
