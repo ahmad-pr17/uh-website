@@ -26,15 +26,15 @@ export default function UnionTownPage() {
     ];
 
     return (
-        <div className="pt-32 pb-20 bg-[#020617]">
+        <div className="pt-32 pb-20 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 {/* Hero section for the project */}
-                <div className="relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border">
+                <div className="on-dark relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: "url('/union-town-hero.jpg')" }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                     <div className="absolute bottom-12 left-8 md:left-12 space-y-4">
                         <div className="px-4 py-1.5 bg-primary text-black text-xs font-bold uppercase tracking-widest rounded-full inline-block">
                             Hot Project
@@ -116,7 +116,7 @@ export default function UnionTownPage() {
                                 href="/union-town-map.jpg"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block overflow-hidden rounded-3xl border border-primary/20 shadow-2xl bg-white"
+                                className="block overflow-hidden rounded-3xl border border-primary/20 shadow-2xl bg-[#ffffff]"
                             >
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img

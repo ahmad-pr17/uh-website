@@ -61,7 +61,7 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
     // Interactive Map via Leaflet
     if (mapData && mapData.tileUrl) {
         return (
-            <div className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 bg-[#020617] relative shadow-2xl group">
+            <div className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 bg-background relative shadow-2xl group">
                 <LeafletMap
                     key={mapUrl}
                     tileUrl={mapData.tileUrl}
@@ -91,7 +91,7 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
     // Fallback UI if tileUrl fetch fails or cannot be resolved
     return (
         <div 
-            className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 bg-[#020617] relative shadow-2xl shadow-primary/5 group flex flex-col items-center justify-center"
+            className="w-full h-full rounded-2xl md:rounded-3xl overflow-hidden border border-primary/20 bg-background relative shadow-2xl shadow-primary/5 group flex flex-col items-center justify-center"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >

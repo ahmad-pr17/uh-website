@@ -17,14 +17,14 @@ export default function DHAPhase7Page() {
     ];
 
     return (
-        <div className="pt-32 pb-20 bg-[#020617]">
+        <div className="pt-32 pb-20 bg-background">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border text-center md:text-left">
+                <div className="on-dark relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border text-center md:text-left">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1200')" }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                     <div className="absolute bottom-12 left-8 md:left-12 space-y-4">
                         <div className="px-4 py-1.5 bg-primary text-black text-xs font-bold uppercase tracking-widest rounded-full inline-block">
                             Fully Developed
@@ -117,9 +117,9 @@ export default function DHAPhase7Page() {
                                 <p className="text-xs text-muted-foreground uppercase font-bold tracking-widest">Connect with Expert Consultants</p>
                             </div>
                             <form className="space-y-4">
-                                <input type="text" placeholder="Full Name" className="w-full bg-[#020617] border border-border rounded-xl px-4 py-4 text-white focus:border-primary transition-colors outline-none" />
-                                <input type="tel" placeholder="Phone Number" className="w-full bg-[#020617] border border-border rounded-xl px-4 py-4 text-white focus:border-primary transition-colors outline-none" />
-                                <select className="w-full bg-[#020617] border border-border rounded-xl px-4 py-4 text-white focus:border-primary transition-colors outline-none">
+                                <input type="text" placeholder="Full Name" className="w-full bg-background border border-border rounded-xl px-4 py-4 text-white focus:border-primary transition-colors outline-none" />
+                                <input type="tel" placeholder="Phone Number" className="w-full bg-background border border-border rounded-xl px-4 py-4 text-white focus:border-primary transition-colors outline-none" />
+                                <select className="w-full bg-background border border-border rounded-xl px-4 py-4 text-white focus:border-primary transition-colors outline-none">
                                     <option>Phase 7 - 1 Kanal Plots</option>
                                     <option>Phase 7 - 10 Marla Plots</option>
                                     <option>Phase 7 - Commercial Plots</option>

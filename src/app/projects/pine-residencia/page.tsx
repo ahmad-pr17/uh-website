@@ -22,14 +22,14 @@ const total = (p: (typeof PINE_PLAN)[number]) =>
 
 export default function PineResidenciaPage() {
     return (
-        <div className="pt-32 pb-20 bg-[#020617]">
+        <div className="pt-32 pb-20 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
                     <ArrowLeft className="w-4 h-4" /> All Projects
                 </Link>
 
                 {/* Hero */}
-                <div className="relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border">
+                <div className="on-dark relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border">
                     <Image
                         src="/pine-residencia-street.jpg"
                         alt="Pine Residencia street view"
@@ -38,7 +38,7 @@ export default function PineResidenciaPage() {
                         sizes="(min-width: 1280px) 1200px, 100vw"
                         className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
                     <div className="absolute bottom-12 left-8 md:left-12 right-8 space-y-4">
                         <div className="flex flex-wrap gap-3">
                             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-black text-xs font-bold uppercase tracking-widest rounded-full">

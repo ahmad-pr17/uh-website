@@ -23,6 +23,54 @@
   --radius: 0.75rem;
 }
 
+/* Light mode. `text-white`, `bg-white/x` and `border-white/x` are remapped to ink so the existing
+   dark-first markup flips automatically; fills that must stay white use `bg-[#ffffff]`. */
+html.light {
+  color-scheme: light;
+  --background: #faf8f4;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --secondary: #ece6d9;
+  --secondary-foreground: #0f172a;
+  --muted: #ece6d9;
+  --muted-foreground: #556070;
+  --accent: #ece6d9;
+  --accent-foreground: #0f172a;
+  --border: #ddd5c4;
+  --input: #ddd5c4;
+  --color-white: #0f172a;
+  --primary-text: #a16207;
+}
+
+/* Gold as a *text* colour needs more weight on a light background; fills stay bright gold. */
+html.light .text-primary {
+  color: var(--primary-text);
+}
+
+/* The logo artwork is white-only, so it becomes ink in light mode. */
+html.light .theme-logo {
+  filter: brightness(0) !important;
+}
+
+/* Photo banners keep a dark overlay with white text in both modes. */
+html.light .on-dark {
+  --background: #020617;
+  --muted-foreground: #94a3b8;
+  --border: #1e293b;
+  --color-white: #ffffff;
+}
+
+html.light .on-dark .text-primary {
+  color: #eab308;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

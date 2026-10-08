@@ -14,7 +14,7 @@ export default function Footer() {
                                 alt="Universal Holdings Logo" 
                                 width={160} 
                                 height={50} 
-                                className="h-10 w-auto object-contain brightness-0 invert"
+                                className="h-10 w-auto object-contain theme-logo brightness-0 invert"
                             />
                         </div>
                         <p className="text-muted-foreground leading-relaxed">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const NAV_LINKS = [
     { name: "Home", href: "/" },
@@ -48,7 +49,7 @@ export default function Header() {
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 isScrolled
                     ? "bg-background/80 backdrop-blur-md border-b border-border py-4"
-                    : "bg-transparent py-6"
+                    : "bg-transparent [html.light_&]:bg-background/85 [html.light_&]:backdrop-blur-md [html.light_&]:border-b [html.light_&]:border-border py-6"
             )}
         >
             <div className="container mx-auto px-4 md:px-6">
@@ -59,7 +60,7 @@ export default function Header() {
                             alt="Universal Holdings" 
                             width={180} 
                             height={60} 
-                            className="h-12 w-auto object-contain"
+                            className="h-12 w-auto object-contain theme-logo"
                             priority
                         />
                     </Link>
@@ -78,6 +79,7 @@ export default function Header() {
                     </nav>
 
                     <div className="hidden md:flex items-center gap-4">
+                        <ThemeToggle />
                         <Link
                             href="tel:+923210000777"
                             className="flex items-center gap-2 text-sm font-medium text-white bg-primary/10 hover:bg-primary/20 border border-primary/20 px-4 py-2 rounded-full transition-all"
@@ -88,6 +90,7 @@ export default function Header() {
                     </div>
 
                     {/* Mobile Menu Toggle */}
+                    <ThemeToggle className="md:hidden ml-auto mr-3" />
                     <button
                         className="md:hidden text-white"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

@@ -4,9 +4,9 @@ import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const VARIANT_STYLES = {
-    primary: "bg-primary text-black hover:bg-white",
-    outline: "bg-white/10 text-white border border-white/20 hover:bg-white/20",
-    ghost: "bg-white/5 text-white border border-border hover:bg-white/10",
+    primary: "bg-primary text-black hover:bg-[#ffffff]",
+    outline: "bg-white/10 text-white border border-white/20 hover:bg-[#ffffff]/20",
+    ghost: "bg-white/5 text-white border border-border hover:bg-[#ffffff]/10",
 } as const;
 
 const SIZE_STYLES = {
