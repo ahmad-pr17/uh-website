@@ -170,13 +170,13 @@ export default function PineResidenciaPage() {
                                 </p>
                             </div>
                             <a
-                                href="tel:+923210000777"
+                                href="tel:+923001234567"
                                 className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-black font-bold rounded-xl hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-primary/20"
                             >
-                                <Phone className="w-5 h-5" /> Call 0321 0000777
+                                <Phone className="w-5 h-5" /> Call +92 300 123 4567
                             </a>
                             <a
-                                href="mailto:universalholding12@gmail.com?subject=Pine%20Residencia%20inquiry"
+                                href="mailto:info@example.com?subject=Pine%20Residencia%20inquiry"
                                 className="flex items-center justify-center gap-2 w-full py-4 border border-border text-white font-bold rounded-xl hover:border-primary/50 transition-colors"
                             >
                                 <Mail className="w-5 h-5 text-primary" /> Email Us
