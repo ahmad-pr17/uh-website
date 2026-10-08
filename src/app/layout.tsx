@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Prime Estates | Real Estate Consultant",
-  description: "Premier real estate consultancy specializing in DHA Lahore and luxury projects. Your trusted partner for secure property investments.",
+  description: "Premier real estate consultancy specializing in Union Town, Pine Residencia and Union Greens in Lahore. Your trusted partner for secure property investments.",
 };
 
 export default function RootLayout({

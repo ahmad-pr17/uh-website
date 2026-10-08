@@ -24,7 +24,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              At Prime Estates, we specialize in DHA Lahore, DHA Multan, and other prestige projects. Our mission is to provide transparent, secure, and highly profitable investment opportunities for our clients.
+              At Prime Estates, we specialize in Union Developers' projects — Union Town, Pine Residencia and Union Greens. Our mission is to provide transparent, secure, and highly profitable investment opportunities for our clients.
             </p>
             <div className="space-y-4">
               {[

@@ -5,12 +5,12 @@ const TESTIMONIALS = [
     {
         quote: "From the first meeting to the final transfer, everything was handled with complete transparency. They walked me through every document before I signed anything.",
         name: "Ahsan Raza",
-        role: "Investor, DHA Phase 9 Prism",
+        role: "Investor, Union Greens",
     },
     {
         quote: "I was buying from overseas and nervous about verification. The team sent me the plot map and title documents before I committed a single rupee.",
         name: "Sara Khalid",
-        role: "Overseas Client, DHA Phase 6",
+        role: "Overseas Client, Union Town",
     },
     {
         quote: "Best consultancy experience I've had in Lahore real estate. Responsive, knowledgeable about every sector, and never pushy about closing a deal.",

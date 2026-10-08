@@ -12,7 +12,7 @@ export default function Footer() {
                             <BrandLogo />
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            Your trusted partner in premium real estate consultancy. Specializing in DHA Lahore and luxury projects across Pakistan.
+                            Your trusted partner in premium real estate consultancy. Specializing in Union Town, Pine Residencia and Union Greens in Lahore.
                         </p>
                         <div className="flex items-center gap-4">
                             {[
@@ -35,8 +35,8 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wider">Quick Links</h3>
                         <ul className="space-y-4">
-                            <li><Link href="/projects" className="text-muted-foreground hover:text-primary transition-colors">DHA Phase 7</Link></li>
-                            <li><Link href="/projects" className="text-muted-foreground hover:text-primary transition-colors">DHA Phase 9 Prism</Link></li>
+                            <li><Link href="/projects/union-town-lahore" className="text-muted-foreground hover:text-primary transition-colors">Union Town Lahore</Link></li>
+                            <li><Link href="/projects/union-greens" className="text-muted-foreground hover:text-primary transition-colors">Union Greens</Link></li>
                             <li><Link href="/maps" className="text-muted-foreground hover:text-primary transition-colors">Plot Finder Map</Link></li>
                             <li><Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Latest Market News</Link></li>
                             <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">Our Team</Link></li>
