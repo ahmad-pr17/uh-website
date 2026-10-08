@@ -52,31 +52,13 @@ export default function UnionTownPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-16">
-                        {/* Project Overview */}
-                        <section className="space-y-6">
-                            <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4">Project Overview</h2>
-                            <p className="text-muted-foreground text-lg leading-relaxed">
-                                Union Town Lahore is the latest masterpiece by <span className="text-white font-semibold">Union Developers</span>.
-                                Strategically located in the heart of Lahore's expanding residential grid, it offers a secure and
-                                profitable path for both genuine buyers and smart investors. Unlike many speculative schemes,
-                                Union Town is a map-based launch with physical development already in progress.
-                            </p>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                                {[
-                                    { icon: ShieldCheck, title: "LDA Approved", desc: "Fully legal and transparent project status." },
-                                    { icon: TrendingUp, title: "High ROI", desc: "Expected 20-30% appreciation in 18-24 months." },
-                                    { icon: Building2, title: "Rapid Development", desc: "Infrastructure work is active across all blocks." },
-                                    { icon: CheckCircle2, title: "Plot Numbers", desc: "Transparent allocation without balloting delays." },
-                                ].map((item) => (
-                                    <div key={item.title} className="flex gap-4 p-4 bg-secondary/20 rounded-2xl border border-border/50">
-                                        <div className="mt-1"><item.icon className="w-6 h-6 text-primary" /></div>
-                                        <div>
-                                            <h4 className="font-bold text-white">{item.title}</h4>
-                                            <p className="text-sm text-muted-foreground">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                        {/* Virtual Tour */}
+                        <section className="space-y-8">
+                            <div className="space-y-2 border-b border-white/5 pb-6">
+                                <h2 className="text-3xl font-bold text-white tracking-tight">Virtual Tour</h2>
+                                <p className="text-muted-foreground">Explore Union Town in 360° — drag to look around.</p>
                             </div>
+                            <VirtualTour />
                         </section>
 
                         {/* Location Section */}
@@ -148,13 +130,31 @@ export default function UnionTownPage() {
                             </a>
                         </section>
 
-                        {/* Virtual Tour */}
-                        <section className="space-y-8">
-                            <div className="space-y-2 border-b border-white/5 pb-6">
-                                <h2 className="text-3xl font-bold text-white tracking-tight">Virtual Tour</h2>
-                                <p className="text-muted-foreground">Explore Union Town in 360° — drag to look around.</p>
+                        {/* Project Overview */}
+                        <section className="space-y-6">
+                            <h2 className="text-3xl font-bold text-white border-l-4 border-primary pl-4">Project Overview</h2>
+                            <p className="text-muted-foreground text-lg leading-relaxed">
+                                Union Town Lahore is the latest masterpiece by <span className="text-white font-semibold">Union Developers</span>.
+                                Strategically located in the heart of Lahore's expanding residential grid, it offers a secure and
+                                profitable path for both genuine buyers and smart investors. Unlike many speculative schemes,
+                                Union Town is a map-based launch with physical development already in progress.
+                            </p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                                {[
+                                    { icon: ShieldCheck, title: "LDA Approved", desc: "Fully legal and transparent project status." },
+                                    { icon: TrendingUp, title: "High ROI", desc: "Expected 20-30% appreciation in 18-24 months." },
+                                    { icon: Building2, title: "Rapid Development", desc: "Infrastructure work is active across all blocks." },
+                                    { icon: CheckCircle2, title: "Plot Numbers", desc: "Transparent allocation without balloting delays." },
+                                ].map((item) => (
+                                    <div key={item.title} className="flex gap-4 p-4 bg-secondary/20 rounded-2xl border border-border/50">
+                                        <div className="mt-1"><item.icon className="w-6 h-6 text-primary" /></div>
+                                        <div>
+                                            <h4 className="font-bold text-white">{item.title}</h4>
+                                            <p className="text-sm text-muted-foreground">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <VirtualTour />
                         </section>
 
                         {/* Plot Options */}
