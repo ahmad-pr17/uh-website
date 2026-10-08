@@ -4,7 +4,7 @@ export const CONTACT = {
     phoneE164: "+923001234567",
     whatsappNumber: "923001234567", // international format, digits only (wa.me)
     email: "info@example.com",
-    address: "Office #1, Phase 6, DHA Lahore",
+    address: "Union Town, Pine Avenue, Lahore",
 } as const;
 
 export const telHref = `tel:${CONTACT.phoneE164}`;
