@@ -32,7 +32,7 @@ export default function UnionTownPage() {
                 <div className="relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=1200')" }}
+                        style={{ backgroundImage: "url('/union-town-hero.jpg')" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent" />
                     <div className="absolute bottom-12 left-8 md:left-12 space-y-4">
