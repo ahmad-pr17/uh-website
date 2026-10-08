@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import dynamic from "next/dynamic";
 import { Phone, Mail, MapPin, Send, MessageSquare, MessageCircle, CheckCircle2 } from "lucide-react";
-import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
+import { CONTACT, mailHref, officeDirectionsHref, officeEmbedSrc, officePlaceHref, telHref, whatsappHref } from "@/config/contact";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
@@ -81,7 +81,7 @@ export default function ContactPage() {
                                 icon: MapPin,
                                 label: "Visit Us",
                                 value: OFFICE_ADDRESS,
-                                href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(OFFICE_ADDRESS)}`,
+                                href: officePlaceHref,
                             },
                         ].map((item) => (
                             <a
@@ -175,6 +175,35 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Office location */}
+                    <section className="space-y-6">
+                        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                            <div className="space-y-2">
+                                <Eyebrow>Visit Us</Eyebrow>
+                                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Our Office</h2>
+                                <p className="text-muted-foreground">{CONTACT.address}, Pakistan</p>
+                            </div>
+                            <a
+                                href={officeDirectionsHref}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-black font-bold rounded-xl hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-primary/20 shrink-0"
+                            >
+                                <MapPin className="w-5 h-5" /> Get Directions
+                            </a>
+                        </div>
+                        <div className="rounded-3xl overflow-hidden border border-border h-[360px] md:h-[440px] bg-secondary/20">
+                            <iframe
+                                src={officeEmbedSrc}
+                                title="Universal Holdings office on Google Maps"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                allowFullScreen
+                                className="w-full h-full border-0"
+                            />
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
