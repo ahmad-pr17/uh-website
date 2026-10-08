@@ -32,6 +32,15 @@ export const OTHER_PROJECTS: Project[] = [
         tag: "Prime Connectivity"
     },
     {
+        id: "pine-residencia",
+        slug: "pine-residencia",
+        name: "Pine Residencia — Union Town",
+        description: "2-BHK apartments in Union Town A Block on Pine Avenue. Booking from PKR 15 Lakh on a 2.5-year installment plan.",
+        image: "/pine-residencia-building.jpg",
+        hot: true,
+        tag: "2-BHK Apartments"
+    },
+    {
         id: "lahore-smart-city",
         slug: "lahore-smart-city",
         name: "Lahore Smart City",

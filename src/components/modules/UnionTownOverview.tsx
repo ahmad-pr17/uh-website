@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Building2, Home, Wallet, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Building2, Home, Wallet, ArrowRight, Flame } from "lucide-react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import VirtualTour from "@/components/modules/VirtualTour";
 import {
@@ -11,6 +12,7 @@ import {
     formatPkr,
     planTotal,
 } from "@/data/unionTown";
+import { PINE_BOOKING_FROM, PINE_HREF } from "@/data/pineResidencia";
 
 const CELL = "px-4 py-3 text-right whitespace-nowrap";
 
@@ -67,6 +69,35 @@ export default function UnionTownOverview() {
                     ))}
                 </div>
             </div>
+
+            {/* Apartments — Pine Residencia */}
+            <Link
+                href={PINE_HREF}
+                className="group relative block overflow-hidden rounded-3xl border border-primary/30 min-h-[320px]"
+            >
+                <Image
+                    src="/pine-residencia-street.jpg"
+                    alt="Pine Residencia apartments in Union Town"
+                    fill
+                    sizes="(min-width: 1280px) 1200px, 100vw"
+                    className="object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 to-transparent" />
+                <div className="relative z-10 p-8 md:p-12 max-w-xl space-y-4 flex flex-col justify-center min-h-[320px]">
+                    <span className="inline-flex items-center gap-1.5 w-fit px-4 py-1.5 bg-primary text-black text-xs font-bold uppercase tracking-widest rounded-full">
+                        <Flame className="w-3.5 h-3.5" /> Hot Item
+                    </span>
+                    <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+                        Pine <span className="text-primary">Residencia</span>
+                    </h3>
+                    <p className="text-white/80">
+                        2-BHK apartments in Union Town A Block, Pine Avenue. Booking from {formatPkr(PINE_BOOKING_FROM)} on a 2.5-year installment plan.
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm font-bold text-primary">
+                        View Plans &amp; Pricing <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                </div>
+            </Link>
 
             {/* Commercial payment plan */}
             <div className="space-y-8">
