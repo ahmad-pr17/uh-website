@@ -1,6 +1,7 @@
 import Link from "next/link";
 import BrandLogo from "@/components/ui/BrandLogo";
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Twitter } from "lucide-react";
+import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
 
 export default function Footer() {
     return (
@@ -57,17 +58,39 @@ export default function Footer() {
                     <div>
                         <h3 className="text-white font-bold text-lg mb-6 uppercase tracking-wider">Contact Us</h3>
                         <ul className="space-y-4">
-                            <li className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-primary shrink-0" />
-                                <span className="text-muted-foreground">Office #1, Phase 6, DHA Lahore, Pakistan</span>
+                            <li>
+                                <a
+                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.address)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-start gap-3 text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    <MapPin className="w-5 h-5 text-primary shrink-0" />
+                                    <span>{CONTACT.address}, Pakistan</span>
+                                </a>
                             </li>
-                            <li className="flex items-center gap-3">
-                                <Phone className="w-5 h-5 text-primary shrink-0" />
-                                <span className="text-muted-foreground">+92 300 123 4567</span>
+                            <li>
+                                <a href={telHref} className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                                    <Phone className="w-5 h-5 text-primary shrink-0" />
+                                    <span>{CONTACT.phoneDisplay}</span>
+                                </a>
                             </li>
-                            <li className="flex items-center gap-3">
-                                <Mail className="w-5 h-5 text-primary shrink-0" />
-                                <span className="text-muted-foreground">info@example.com</span>
+                            <li>
+                                <a
+                                    href={whatsappHref("Hi, I would like to know more about your projects.")}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    <MessageCircle className="w-5 h-5 text-primary shrink-0" />
+                                    <span>WhatsApp</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href={mailHref()} className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors break-all">
+                                    <Mail className="w-5 h-5 text-primary shrink-0" />
+                                    <span>{CONTACT.email}</span>
+                                </a>
                             </li>
                         </ul>
                     </div>

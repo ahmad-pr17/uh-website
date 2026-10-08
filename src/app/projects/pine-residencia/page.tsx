@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, BadgePercent, BedDouble, Building2, Mail, MapPin, Phone, ShieldCheck, Flame } from "lucide-react";
+import { ArrowLeft, BadgePercent, BedDouble, Building2, MapPin, ShieldCheck, Flame } from "lucide-react";
+import ContactButtons from "@/components/ui/ContactButtons";
 import { formatPkr } from "@/data/unionTown";
 import {
     PINE_BOOKING_FROM,
@@ -169,18 +170,7 @@ export default function PineResidenciaPage() {
                                     Booking from <span className="text-primary font-bold">{formatPkr(PINE_BOOKING_FROM)}</span>. Talk to our team for availability and floor plans.
                                 </p>
                             </div>
-                            <a
-                                href="tel:+923001234567"
-                                className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-black font-bold rounded-xl hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-primary/20"
-                            >
-                                <Phone className="w-5 h-5" /> Call +92 300 123 4567
-                            </a>
-                            <a
-                                href="mailto:info@example.com?subject=Pine%20Residencia%20inquiry"
-                                className="flex items-center justify-center gap-2 w-full py-4 border border-border text-white font-bold rounded-xl hover:border-primary/50 transition-colors"
-                            >
-                                <Mail className="w-5 h-5 text-primary" /> Email Us
-                            </a>
+                            <ContactButtons topic="Pine Residencia" />
                             <Link href="/projects/union-town-lahore" className="block text-center text-sm text-muted-foreground hover:text-primary transition-colors">
                                 Part of Union Town Lahore →
                             </Link>

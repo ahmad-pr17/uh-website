@@ -2,7 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import dynamic from "next/dynamic";
-import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, MessageSquare, MessageCircle, CheckCircle2 } from "lucide-react";
+import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
@@ -14,8 +15,8 @@ const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
 });
 
 const OFFICE_MAP_URL = "https://ilaaqa.com/maps/dha-phase-6-lahore";
-const OFFICE_ADDRESS = "Office #1, Phase 6, DHA Lahore";
-const CONTACT_EMAIL = "info@example.com";
+const OFFICE_ADDRESS = CONTACT.address;
+const CONTACT_EMAIL = CONTACT.email;
 
 interface FormState {
     name: string;
@@ -71,10 +72,11 @@ export default function ContactPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { icon: Phone, label: "Call Us", value: "+92 300 123 4567", href: "tel:+923001234567" },
-                            { icon: Mail, label: "Email Us", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+                            { icon: Phone, label: "Call Us", value: CONTACT.phoneDisplay, href: telHref },
+                            { icon: MessageCircle, label: "WhatsApp", value: CONTACT.phoneDisplay, href: whatsappHref("Hi, I would like to know more about your projects.") },
+                            { icon: Mail, label: "Email Us", value: CONTACT_EMAIL, href: mailHref() },
                             {
                                 icon: MapPin,
                                 label: "Visit Us",
@@ -94,7 +96,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">{item.label}</p>
-                                    <p className="text-white font-bold">{item.value}</p>
+                                    <p className="text-white font-bold break-words">{item.value}</p>
                                 </div>
                             </a>
                         ))}

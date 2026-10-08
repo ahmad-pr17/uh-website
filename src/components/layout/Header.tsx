@@ -3,7 +3,8 @@
 import Link from "next/link";
 import BrandLogo from "@/components/ui/BrandLogo";
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
+import { CONTACT, mailHref, telHref, whatsappHref } from "@/config/contact";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
@@ -44,6 +45,7 @@ export default function Header() {
     }, [isMobileMenuOpen]);
 
     return (
+        <>
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
@@ -74,7 +76,7 @@ export default function Header() {
                     <div className="hidden md:flex items-center gap-4">
                         <ThemeToggle />
                         <Link
-                            href="tel:+923001234567"
+                            href={telHref}
                             className="flex items-center gap-2 text-sm font-medium text-white bg-primary/10 hover:bg-primary/20 border border-primary/20 px-4 py-2 rounded-full transition-all"
                         >
                             <Phone className="w-4 h-4 text-primary" />
@@ -95,42 +97,52 @@ export default function Header() {
                     </button>
                 </div>
             </div>
+        </header>
 
-            {/* Mobile Nav */}
+            {/* Mobile Nav — rendered outside <header>: a backdrop-filter on the header would otherwise make
+                this fixed panel size itself to the header instead of the viewport. */}
             <div
                 id="mobile-nav"
                 inert={!isMobileMenuOpen}
+                aria-hidden={!isMobileMenuOpen}
                 className={cn(
-                    "fixed inset-0 top-[72px] bg-background z-40 md:hidden transition-transform duration-300 ease-in-out",
+                    "fixed inset-0 z-40 md:hidden bg-background overflow-y-auto pt-24 transition-transform duration-300 ease-in-out",
                     isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                 )}
             >
-                <div className="flex flex-col gap-6 p-8">
+                <div className="flex flex-col gap-2 p-6 min-h-full">
                     {NAV_LINKS.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-xl font-medium text-white hover:text-primary"
+                            className="text-2xl font-semibold text-white hover:text-primary py-3 border-b border-border/60"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {link.name}
                         </Link>
                     ))}
-                    <div className="pt-6 border-t border-border mt-auto">
-                        <div className="flex flex-col gap-4">
-                            <p className="text-sm text-muted-foreground uppercase tracking-widest font-semibold">Contact Us</p>
-                            <div className="flex items-center gap-3 text-white">
-                                <Phone className="w-5 h-5 text-primary" />
-                                <span>+92 300 123 4567</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-white">
-                                <Mail className="w-5 h-5 text-primary" />
-                                <span>info@example.com</span>
-                            </div>
-                        </div>
+                    <div className="pt-8 mt-auto space-y-3">
+                        <p className="text-sm text-muted-foreground uppercase tracking-widest font-semibold">Contact Us</p>
+                        <a href={telHref} className="flex items-center gap-3 p-4 bg-primary text-black font-bold rounded-xl">
+                            <Phone className="w-5 h-5" />
+                            <span>Call {CONTACT.phoneDisplay}</span>
+                        </a>
+                        <a
+                            href={whatsappHref("Hi, I would like to know more about your projects.")}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 p-4 bg-[#25D366] text-black font-bold rounded-xl"
+                        >
+                            <MessageCircle className="w-5 h-5" />
+                            <span>WhatsApp Us</span>
+                        </a>
+                        <a href={mailHref()} className="flex items-center gap-3 p-4 border border-border text-white font-semibold rounded-xl break-all">
+                            <Mail className="w-5 h-5 text-primary shrink-0" />
+                            <span>{CONTACT.email}</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </header>
+        </>
     );
 }

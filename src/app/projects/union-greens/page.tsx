@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Clock, Mail, MapPin, Phone, ShieldCheck, Trees } from "lucide-react";
+import { ArrowLeft, Clock, MapPin, ShieldCheck, Trees } from "lucide-react";
+import ContactButtons from "@/components/ui/ContactButtons";
 import { formatPkr } from "@/data/unionTown";
 import { UG_PHASES } from "@/data/unionGreens";
 
@@ -187,18 +188,7 @@ export default function UnionGreensPage() {
                                     5 Marla from <span className="text-primary font-bold">{formatPkr(3_495_000)}</span> down payment. Talk to our team for availability and maps.
                                 </p>
                             </div>
-                            <a
-                                href="tel:+923210000777"
-                                className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-black font-bold rounded-xl hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-primary/20"
-                            >
-                                <Phone className="w-5 h-5" /> Call 0321 0000777
-                            </a>
-                            <a
-                                href="mailto:universalholding12@gmail.com?subject=Union%20Greens%20inquiry"
-                                className="flex items-center justify-center gap-2 w-full py-4 border border-border text-white font-bold rounded-xl hover:border-primary/50 transition-colors"
-                            >
-                                <Mail className="w-5 h-5 text-primary" /> Email Us
-                            </a>
+                            <ContactButtons topic="Union Greens" />
                             <Link href="/projects/union-town-lahore" className="block text-center text-sm text-muted-foreground hover:text-primary transition-colors">
                                 Also see Union Town Lahore →
                             </Link>

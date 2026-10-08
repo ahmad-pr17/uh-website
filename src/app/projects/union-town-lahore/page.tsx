@@ -2,6 +2,7 @@
 
 import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Clock, Car, Hospital, Maximize2 } from "lucide-react";
 import dynamic from "next/dynamic";
+import ContactButtons from "@/components/ui/ContactButtons";
 import VirtualTour from "@/components/modules/VirtualTour";
 import { RESIDENTIAL_PLOTS } from "@/data/unionTown";
 
@@ -231,28 +232,7 @@ export default function UnionTownPage() {
                                 </p>
                             </div>
 
-                            <form className="space-y-4">
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Full Name</label>
-                                    <input type="text" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50" />
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Phone Number</label>
-                                    <input type="tel" className="w-full bg-background border border-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50" />
-                                </div>
-                                <div className="space-y-1">
-                                    <label className="text-[10px] font-bold uppercase text-muted-foreground ml-1">Plot Size Interested</label>
-                                    <select className="w-full bg-background border border-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 appearance-none">
-                                        <option>5 Marla (Hot Selling)</option>
-                                        <option>3 Marla</option>
-                                        <option>10 Marla</option>
-                                        <option>1 Kanal</option>
-                                    </select>
-                                </div>
-                                <button className="w-full py-4 bg-primary text-black font-bold rounded-xl hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-primary/20">
-                                    Send Inquiry
-                                </button>
-                            </form>
+                            <ContactButtons topic="Union Town Lahore" />
 
                             <div className="pt-6 border-t border-border space-y-4">
                                 <div className="flex items-center gap-3">
