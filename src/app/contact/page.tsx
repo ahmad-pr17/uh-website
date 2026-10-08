@@ -15,7 +15,7 @@ const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
 
 const OFFICE_MAP_URL = "https://ilaaqa.com/maps/dha-phase-6-lahore";
 const OFFICE_ADDRESS = "Office #1, Phase 6, DHA Lahore";
-const CONTACT_EMAIL = "info@universalholdings.com";
+const CONTACT_EMAIL = "universalholding12@gmail.com";
 
 interface FormState {
     name: string;
@@ -73,7 +73,7 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { icon: Phone, label: "Call Us", value: "+92 300 123 4567", href: "tel:+923001234567" },
+                            { icon: Phone, label: "Call Us", value: "0321 0000777", href: "tel:+923210000777" },
                             { icon: Mail, label: "Email Us", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
                             {
                                 icon: MapPin,

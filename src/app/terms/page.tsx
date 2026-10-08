@@ -39,8 +39,8 @@ export default function TermsPage() {
                         <h2 className="text-xl font-bold text-white">Contact Us</h2>
                         <p>
                             Questions about these terms can be sent to{" "}
-                            <a href="mailto:info@universalholdings.com" className="text-primary underline underline-offset-2">
-                                info@universalholdings.com
+                            <a href="mailto:universalholding12@gmail.com" className="text-primary underline underline-offset-2">
+                                universalholding12@gmail.com
                             </a>
                             .
                         </p>

@@ -79,7 +79,7 @@ export default function Header() {
 
                     <div className="hidden md:flex items-center gap-4">
                         <Link
-                            href="tel:+923001234567"
+                            href="tel:+923210000777"
                             className="flex items-center gap-2 text-sm font-medium text-white bg-primary/10 hover:bg-primary/20 border border-primary/20 px-4 py-2 rounded-full transition-all"
                         >
                             <Phone className="w-4 h-4 text-primary" />
@@ -125,11 +125,11 @@ export default function Header() {
                             <p className="text-sm text-muted-foreground uppercase tracking-widest font-semibold">Contact Us</p>
                             <div className="flex items-center gap-3 text-white">
                                 <Phone className="w-5 h-5 text-primary" />
-                                <span>+92 300 123 4567</span>
+                                <span>0321 0000777</span>
                             </div>
                             <div className="flex items-center gap-3 text-white">
                                 <Mail className="w-5 h-5 text-primary" />
-                                <span>info@universalholdings.com</span>
+                                <span>universalholding12@gmail.com</span>
                             </div>
                         </div>
                     </div>
