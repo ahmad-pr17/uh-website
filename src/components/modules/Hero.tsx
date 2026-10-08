@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Map as MapIcon, ArrowRight, Pin, Search } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -27,19 +28,21 @@ export default function Hero() {
 
     return (
         <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-24 pb-20 overflow-hidden">
-            {/* Background Image with Overlay */}
-            <div
-                role="img"
-                aria-label="Modern real estate skyline"
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000')",
-                }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background/95" />
+            {/* Background render + overlay (kept dark in both themes so the image stays crisp) */}
+            <div className="on-dark absolute inset-0 z-0">
+                <Image
+                    src="/union-town-hero.jpg"
+                    alt="Union Town Lahore render"
+                    fill
+                    priority
+                    quality={90}
+                    sizes="100vw"
+                    className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background/90" />
             </div>
 
-            <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+            <div className="on-dark container mx-auto px-4 md:px-6 relative z-10 text-center">
                 <div className="max-w-4xl mx-auto space-y-8">
                     <div className="space-y-4">
                         <Eyebrow className="md:text-base animate-in fade-in slide-in-from-bottom-4 duration-700" as="p">
@@ -107,7 +110,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="relative z-10 w-full mt-12 animate-in fade-in duration-700 delay-500">
+            <div className="on-dark relative z-10 w-full mt-12 animate-in fade-in duration-700 delay-500">
                 <TrustedByStrip />
             </div>
 
