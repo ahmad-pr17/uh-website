@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
@@ -20,6 +21,9 @@ const NAV_LINKS = [
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    // The home page opens on a full-bleed dark banner, so the header sits transparent over it with light text.
+    const overHeroBanner = pathname === "/" && !isScrolled && !isMobileMenuOpen;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -51,7 +55,9 @@ export default function Header() {
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 isScrolled
                     ? "bg-background/80 backdrop-blur-md [html.light_&]:bg-background border-b border-border py-4"
-                    : "bg-transparent [html.light_&]:bg-background [html.light_&]:border-b [html.light_&]:border-border [html.light_&]:shadow-sm py-6"
+                    : overHeroBanner
+                        ? "on-dark bg-transparent py-6"
+                        : "bg-transparent [html.light_&]:bg-background [html.light_&]:border-b [html.light_&]:border-border [html.light_&]:shadow-sm py-6"
             )}
         >
             <div className="container mx-auto px-4 md:px-6">
