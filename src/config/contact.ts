@@ -4,7 +4,7 @@ export const CONTACT = {
     phoneE164: "+923210000777",
     whatsappNumber: "923210000777", // international format, digits only (wa.me)
     email: "universalholding12@gmail.com",
-    address: "Office #1, Phase 6, DHA Lahore",
+    address: "Union Town, Pine Avenue, Lahore",
 } as const;
 
 export const telHref = `tel:${CONTACT.phoneE164}`;

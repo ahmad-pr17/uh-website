@@ -14,7 +14,7 @@ const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
     loading: () => <div className="w-full h-full bg-secondary/10 animate-pulse rounded-2xl" />,
 });
 
-const OFFICE_MAP_URL = "https://ilaaqa.com/maps/dha-phase-6-lahore";
+const OFFICE_MAP_URL = "https://ilaaqa.com/maps/union-town-lahore";
 const OFFICE_ADDRESS = CONTACT.address;
 const CONTACT_EMAIL = CONTACT.email;
 
@@ -171,7 +171,7 @@ export default function ContactPage() {
                                 )}
                             </div>
                             <div className="hidden lg:block relative rounded-2xl overflow-hidden border border-border h-full min-h-[320px]">
-                                <IlaaqaMap mapUrl={OFFICE_MAP_URL} projectName="Our Office — DHA Phase 6 Lahore" />
+                                <IlaaqaMap mapUrl={OFFICE_MAP_URL} projectName="Union Town Lahore" />
                             </div>
                         </div>
                     </div>
