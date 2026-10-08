@@ -19,3 +19,12 @@ export const mailHref = (subject?: string, body?: string) => {
 
 export const whatsappHref = (text?: string) =>
     `https://wa.me/${CONTACT.whatsappNumber}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+
+// Office location (Google Maps place for "Universal Holdings", Union Town).
+export const OFFICE_COORDS = { lat: 31.4441644, lng: 74.2487463 } as const;
+
+export const officeEmbedSrc = `https://www.google.com/maps?q=${OFFICE_COORDS.lat},${OFFICE_COORDS.lng}&z=17&output=embed`;
+
+export const officeDirectionsHref = `https://www.google.com/maps/dir/?api=1&destination=${OFFICE_COORDS.lat},${OFFICE_COORDS.lng}`;
+
+export const officePlaceHref = `https://www.google.com/maps/search/?api=1&query=${OFFICE_COORDS.lat},${OFFICE_COORDS.lng}`;
