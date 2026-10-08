@@ -17,14 +17,14 @@ export default function DHAPhase9PrismPage() {
     ];
 
     return (
-        <div className="pt-32 pb-20 bg-[#020617]">
+        <div className="pt-32 pb-20 bg-background">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border group text-center md:text-left">
+                <div className="on-dark relative rounded-3xl overflow-hidden h-[500px] mb-16 border border-border group text-center md:text-left">
                     <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
                         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=1200')" }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                     <div className="absolute bottom-12 left-8 md:left-12 space-y-4">
                         <div className="px-4 py-1.5 bg-primary text-black text-[10px] font-black uppercase tracking-[0.2em] rounded-full inline-block">
                             Mega Project of DHA Lahore
@@ -136,8 +136,8 @@ export default function DHAPhase9PrismPage() {
                                 <p className="text-[10px] text-muted-foreground font-bold tracking-[0.2em] uppercase">Professional Real Estate Desk</p>
                             </div>
                             <form className="space-y-4">
-                                <input type="text" placeholder="Full Name" className="w-full bg-[#020617] border border-border rounded-xl px-5 py-4 text-white focus:border-primary transition-all outline-none" />
-                                <input type="tel" placeholder="Contact Number" className="w-full bg-[#020617] border border-border rounded-xl px-5 py-4 text-white focus:border-primary transition-all outline-none" />
+                                <input type="text" placeholder="Full Name" className="w-full bg-background border border-border rounded-xl px-5 py-4 text-white focus:border-primary transition-all outline-none" />
+                                <input type="tel" placeholder="Contact Number" className="w-full bg-background border border-border rounded-xl px-5 py-4 text-white focus:border-primary transition-all outline-none" />
                                 <button className="w-full py-5 bg-primary text-black font-black uppercase tracking-[0.15em] text-xs rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-primary/20">
                                     Request Pricing Guide
                                 </button>

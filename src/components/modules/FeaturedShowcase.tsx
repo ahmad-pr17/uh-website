@@ -12,7 +12,7 @@ export default function FeaturedShowcase() {
     return (
         <section className="container mx-auto px-4 md:px-6">
             <div
-                className="group relative h-[70vh] min-h-[480px] overflow-hidden rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-2xl rounded-bl-2xl border border-primary/20 shadow-2xl shadow-primary/5 transition-transform duration-700 ease-out [transform-style:preserve-3d] hover:[transform:perspective(1400px)_rotateX(1deg)]"
+                className="on-dark group relative h-[70vh] min-h-[480px] overflow-hidden rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-2xl rounded-bl-2xl border border-primary/20 shadow-2xl shadow-primary/5 transition-transform duration-700 ease-out [transform-style:preserve-3d] hover:[transform:perspective(1400px)_rotateX(1deg)]"
             >
                 <div
                     role="img"

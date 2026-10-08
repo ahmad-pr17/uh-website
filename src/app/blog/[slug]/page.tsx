@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                 <div className="mt-12 p-6 bg-secondary/30 rounded-2xl border border-border flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-white font-semibold">Have questions about this project?</p>
-                    <Link href="/contact" className="px-6 py-3 bg-primary text-black font-bold rounded-xl hover:bg-white transition-all shrink-0">
+                    <Link href="/contact" className="px-6 py-3 bg-primary text-black font-bold rounded-xl hover:bg-[#ffffff] transition-all shrink-0">
                         Talk to a Consultant
                     </Link>
                 </div>

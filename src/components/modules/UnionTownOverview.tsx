@@ -73,7 +73,7 @@ export default function UnionTownOverview() {
             {/* Apartments — Pine Residencia */}
             <Link
                 href={PINE_HREF}
-                className="group relative block overflow-hidden rounded-3xl border border-primary/30 min-h-[320px]"
+                className="on-dark group relative block overflow-hidden rounded-3xl border border-primary/30 min-h-[320px]"
             >
                 <Image
                     src="/pine-residencia-street.jpg"
@@ -82,7 +82,7 @@ export default function UnionTownOverview() {
                     sizes="(min-width: 1280px) 1200px, 100vw"
                     className="object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
                 <div className="relative z-10 p-8 md:p-12 max-w-xl space-y-4 flex flex-col justify-center min-h-[320px]">
                     <span className="inline-flex items-center gap-1.5 w-fit px-4 py-1.5 bg-primary text-black text-xs font-bold uppercase tracking-widest rounded-full">
                         <Flame className="w-3.5 h-3.5" /> Hot Item
