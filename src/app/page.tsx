@@ -3,12 +3,23 @@ import FeaturedShowcase from "@/components/modules/FeaturedShowcase";
 import UnionTownOverview from "@/components/modules/UnionTownOverview";
 import FeaturedProjects from "@/components/modules/FeaturedProjects";
 import Testimonials from "@/components/modules/Testimonials";
+import VirtualTour from "@/components/modules/VirtualTour";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-32 pb-32">
       <Hero />
+
+      <section className="container mx-auto px-4 md:px-6 space-y-8">
+        <div className="text-center space-y-3">
+          <Eyebrow>360° Experience</Eyebrow>
+          <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Union Town Virtual Tour</h2>
+          <p className="text-muted-foreground">Drag to look around, tap the blocks to move through the project.</p>
+        </div>
+        <VirtualTour />
+      </section>
+
       <FeaturedShowcase />
       <UnionTownOverview />
       <FeaturedProjects />

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Building2, Home, Wallet, ArrowRight, Flame } from "lucide-react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import VirtualTour from "@/components/modules/VirtualTour";
 import {
     COMMERCIAL_PLAN,
     COMMERCIAL_SIZES,
@@ -146,16 +145,6 @@ export default function UnionTownOverview() {
                     </table>
                 </div>
                 <p className="text-xs text-muted-foreground">All amounts in PKR. Prices and schedules are subject to change; confirm with our team at booking.</p>
-            </div>
-
-            {/* Virtual tour */}
-            <div className="space-y-8">
-                <div className="text-center space-y-3">
-                    <Eyebrow>360° Experience</Eyebrow>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Union Town Virtual Tour</h3>
-                    <p className="text-muted-foreground">Drag to look around, tap the blocks to move through the project.</p>
-                </div>
-                <VirtualTour />
             </div>
         </section>
     );
