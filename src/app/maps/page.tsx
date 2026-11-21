@@ -4,6 +4,8 @@ import { Layers } from "lucide-react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import PlotSearch, { type PlotIndex } from "@/components/modules/PlotSearch";
+import type { MapFocus } from "@/components/modules/LeafletMap";
 
 const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
     ssr: false,
@@ -11,12 +13,17 @@ const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
 });
 
 const SOCIETY_MAPS = [
-    { name: "Union Town Lahore", url: "https://ilaaqa.com/maps/union-town-lahore" },
+    {
+        name: "Union Town Lahore",
+        url: "https://ilaaqa.com/maps/union-town-lahore",
+        loadPlots: () => import("@/data/unionTownPlots.json").then((m) => m.default as PlotIndex),
+    },
     { name: "Union Greens", url: "https://ilaaqa.com/maps/union-greens-lahore" },
 ];
 
 export default function MapsPage() {
     const [selectedProject, setSelectedProject] = useState(SOCIETY_MAPS[0]);
+    const [focus, setFocus] = useState<MapFocus | null>(null);
 
     return (
         <div className="pt-32 pb-20 min-h-screen">
@@ -41,7 +48,7 @@ export default function MapsPage() {
                                     {SOCIETY_MAPS.map((project) => (
                                         <button
                                             key={project.name}
-                                            onClick={() => setSelectedProject(project)}
+                                            onClick={() => { setSelectedProject(project); setFocus(null); }}
                                             className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all border border-transparent ${selectedProject.name === project.name
                                                 ? "bg-primary text-black font-bold shadow-lg shadow-primary/20 border-primary"
                                                 : "text-muted-foreground hover:bg-white/5 hover:text-white hover:border-white/10"
@@ -52,6 +59,16 @@ export default function MapsPage() {
                                     ))}
                                 </div>
                             </div>
+
+                            {selectedProject.loadPlots && (
+                                <div className="pt-4 border-t border-border/50">
+                                    <PlotSearch
+                                        key={selectedProject.name}
+                                        loadIndex={selectedProject.loadPlots}
+                                        onFound={setFocus}
+                                    />
+                                </div>
+                            )}
 
                             <div className="pt-4 border-t border-border/50">
                                 <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest mb-2 opacity-50 underline decoration-primary/30 underline-offset-4">Source Authenticity</p>
@@ -66,7 +83,8 @@ export default function MapsPage() {
                     <div className="lg:col-span-3 h-[700px] relative">
                         <IlaaqaMap 
                             mapUrl={selectedProject.url} 
-                            projectName={selectedProject.name} 
+                            projectName={selectedProject.name}
+                            focus={focus}
                         />
 
                         {/* Visual Accent */}

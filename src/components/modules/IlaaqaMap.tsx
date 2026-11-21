@@ -4,15 +4,17 @@ import { Maximize2, ExternalLink, Map as MapIcon, ShieldCheck, Loader2, RefreshC
 import { useState, useEffect } from "react";
 import { fetchTileUrl, MapData } from "@/actions/mapActions";
 import dynamic from "next/dynamic";
+import type { MapFocus } from "./LeafletMap";
 
 const LeafletMap = dynamic(() => import("./LeafletMap"), { ssr: false });
 
 interface IlaaqaMapProps {
     mapUrl?: string;
     projectName?: string;
+    focus?: MapFocus | null;
 }
 
-export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
+export default function IlaaqaMap({ mapUrl, projectName, focus }: IlaaqaMapProps) {
     const [isHovered, setIsHovered] = useState(false);
     const [mapData, setMapData] = useState<MapData | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -68,6 +70,7 @@ export default function IlaaqaMap({ mapUrl, projectName }: IlaaqaMapProps) {
                     center={mapData.center || undefined}
                     zoom={mapData.zoom || undefined}
                     bounds={mapData.bounds || undefined}
+                    focus={focus}
                 />
 
                 
