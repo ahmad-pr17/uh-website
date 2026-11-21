@@ -4,6 +4,7 @@ import UnionTownOverview from "@/components/modules/UnionTownOverview";
 import FeaturedProjects from "@/components/modules/FeaturedProjects";
 import Testimonials from "@/components/modules/Testimonials";
 import VirtualTour from "@/components/modules/VirtualTour";
+import HomePlotFinder from "@/components/modules/HomePlotFinder";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export default function Home() {
@@ -15,9 +16,14 @@ export default function Home() {
         <div className="text-center space-y-3">
           <Eyebrow>360° Experience</Eyebrow>
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Union Town Virtual Tour</h2>
-          <p className="text-muted-foreground">Drag to look around, tap the blocks to move through the project.</p>
+          <p className="text-muted-foreground">Drag to look around, then find any plot on the interactive map.</p>
         </div>
-        <VirtualTour />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <VirtualTour />
+          </div>
+          <HomePlotFinder />
+        </div>
       </section>
 
       <FeaturedShowcase />

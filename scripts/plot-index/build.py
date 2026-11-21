@@ -4,7 +4,7 @@ from collections import defaultdict
 
 raw = json.load(open(sys.argv[1])); OUT = sys.argv[2]
 X0, Y0, Z = raw["x0"], raw["y0"], raw["z"]
-BLOCKS = ["Block A", "Block B", "Block C", "Block D", "Executive Block", "Union IT Park", "North area", "Central area"]
+BLOCKS = ["Block A", "Block B", "Block C", "Block D", "Block E", "Executive Block", "Union IT Park"]
 
 def to_latlng(px, py):
     n = 2 ** Z
@@ -24,8 +24,10 @@ def block_of(px, py):
     if x < 620 and y > 1700: return "Block A"
     if y >= 1440 and x < 740: return "Block C" if y < 1640 else "Block A"
     if y >= 1440: return "Block B"
-    if y >= 1130 and x < 870: return "Central area"
-    return "North area"
+    # Block E is the big northern area plus the north-east part of the central area; the red dashed
+    # boundary on the official master plan splits the rest of the central area off as Block C.
+    if y >= 1130 and x < 870: return "Block C" if side((x, y), (665, 1240), (840, 1335)) > 0 else "Block E"
+    return "Block E"
 
 def kind_of(c):
     r, g, b = c

@@ -2,9 +2,10 @@
 
 import { Layers } from "lucide-react";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import PlotSearch, { type PlotIndex } from "@/components/modules/PlotSearch";
+import PlotSearch, { loadUnionTownPlots } from "@/components/modules/PlotSearch";
 import type { MapFocus } from "@/components/modules/LeafletMap";
 
 const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
@@ -16,12 +17,14 @@ const SOCIETY_MAPS = [
     {
         name: "Union Town Lahore",
         url: "https://ilaaqa.com/maps/union-town-lahore",
-        loadPlots: () => import("@/data/unionTownPlots.json").then((m) => m.default as PlotIndex),
+        loadPlots: loadUnionTownPlots,
     },
     { name: "Union Greens", url: "https://ilaaqa.com/maps/union-greens-lahore" },
 ];
 
-export default function MapsPage() {
+function MapsContent() {
+    // /maps?plot=141 (from the home page) searches for that plot as soon as the map opens.
+    const initialPlot = useSearchParams().get("plot") ?? undefined;
     const [selectedProject, setSelectedProject] = useState(SOCIETY_MAPS[0]);
     const [focus, setFocus] = useState<MapFocus | null>(null);
 
@@ -66,6 +69,7 @@ export default function MapsPage() {
                                         key={selectedProject.name}
                                         loadIndex={selectedProject.loadPlots}
                                         onFound={setFocus}
+                                        initialPlot={initialPlot}
                                     />
                                 </div>
                             )}
@@ -96,5 +100,14 @@ export default function MapsPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function MapsPage() {
+    // useSearchParams needs a Suspense boundary so the page can still be prerendered.
+    return (
+        <Suspense>
+            <MapsContent />
+        </Suspense>
     );
 }

@@ -1,15 +1,10 @@
 "use client";
 
 import { MapPin, CheckCircle2, TrendingUp, ShieldCheck, Building2, Clock, Car, Hospital, Maximize2 } from "lucide-react";
-import dynamic from "next/dynamic";
 import ContactButtons from "@/components/ui/ContactButtons";
 import VirtualTour from "@/components/modules/VirtualTour";
+import UnionTownPlotMap from "@/components/modules/UnionTownPlotMap";
 import { RESIDENTIAL_PLOTS } from "@/data/unionTown";
-
-const IlaaqaMap = dynamic(() => import("@/components/modules/IlaaqaMap"), {
-    ssr: false,
-    loading: () => <div className="w-full h-[600px] bg-secondary/10 animate-pulse rounded-3xl" />
-});
 
 // 5 Marla residential plan: price from the shared Union Town data, booking/tenure as published on this page.
 const PLAN = { total: RESIDENTIAL_PLOTS.find((p) => p.marla === 5)!.price!, booking: 1_500_000, tenure: 24 };
@@ -75,12 +70,7 @@ export default function UnionTownPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full h-[600px] rounded-3xl overflow-hidden border border-primary/20 shadow-2xl bg-black/40">
-                                <IlaaqaMap 
-                                    mapUrl="https://ilaaqa.com/maps/union-town-lahore" 
-                                    projectName="Union Town Lahore" 
-                                />
-                            </div>
+                            <UnionTownPlotMap />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 bg-secondary/10 rounded-2xl border border-border/50">
                                 {[
                                     { icon: Car, text: "2 mins from Motorway Interchange" },
