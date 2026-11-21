@@ -1,8 +1,9 @@
 const PARTNERS = ["Union Town", "Etihad Town", "Bahria Town", "Union Greens"];
 
-// Duplicated so the track can loop seamlessly: translating the first copy fully
-// out of view (-50%) lines the second copy up exactly where the first one started.
-const TRACK = [...PARTNERS, ...PARTNERS];
+// The track is two identical halves so translating by -50% lines the second half up exactly where
+// the first started. Each half must be wider than the viewport, or the right side shows a gap.
+const HALF = Array.from({ length: 4 }, () => PARTNERS).flat();
+const TRACK = [...HALF, ...HALF];
 
 export default function TrustedByStrip() {
     return (
